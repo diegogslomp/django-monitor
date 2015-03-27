@@ -1,0 +1,18 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Detailed Host</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css'%}" />
+    </head> 
+    <body>
+        <h1>{{ host.name }}</h1>
+        <h2>Info:</h2>
+        <ul>
+            <li>Description: {{ host.description }}</li>
+            <li>IP: {{ host.ipv4 }}</li>
+            <li>Status: {{ host.get_status_display }}</li>
+            <li>Services: {% for service in host.services.all %} {{service.name}} {% endfor %}</li>
+            <li>Dependences: Not yet implemented</li>
+        </ul>
+    </body>
+</html>
