@@ -26,4 +26,4 @@ Quick start
 
 5. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
-6. Start the custom-admin command daemon (python manage.py daemon) to input SSH connection info and start verify each host added in the admin page. 
+6. Add some hosts, run the custom-admin command `python manage.py daemon` and input SSH info to start monitor. 

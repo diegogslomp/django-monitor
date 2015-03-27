@@ -2,6 +2,7 @@
 *.log
 *.swp
 /monitor/migrations/
+/testproject/
 /templates/
 /manage.py
 /db.sqlite3
