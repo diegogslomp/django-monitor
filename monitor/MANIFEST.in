@@ -1,5 +1,0 @@
-include LICENSE
-include README.rst
-recursive-include monitor/static *
-recursive-include monitor/templates *
-recursive-include docs *
