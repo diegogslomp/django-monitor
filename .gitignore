@@ -1,7 +1,7 @@
-/db.sqlite3
 *.pyc
+*.log
+*.swp
 /monitor/migrations/
-/testproject/
 /templates/
 /manage.py
-*.swp
+/db.sqlite3
