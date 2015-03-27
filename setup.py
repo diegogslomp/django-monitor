@@ -15,7 +15,7 @@ setup(
     license='MIT License',
     description='A simple Web-based Django app to monitor linux hosts.',
     long_description=README,
-    url='http://www.example.com/',
+    url='https://github.com/chonpz28/django-monitor/',
     author='Diego G. Slomp',
     author_email='diegogslomp@gmail.com',
     classifiers=[
