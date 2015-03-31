@@ -2,7 +2,7 @@
 Monitor
 =======
 
-Monitor is a simple Web-based Django app to monitor linux hosts through ICMP packets. Add commands to each services to verify the state through SSH tunel.
+Monitor is a simple Web-based Django app to monitor linux hosts through ICMP packets. Add custom commands to verify host service state through SSH.
 
 
 How-To
