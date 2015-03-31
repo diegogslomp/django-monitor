@@ -51,13 +51,16 @@ How-To
 
     python2.7 manage.py migrate
 
-7. Start the development server and visit http://127.0.0.1:8000/admin/
-   to create a host (need the Admin app enabled)::
+7. Create superuser if not created yet::
+
+    python2.7 manage.py createsuperuser
+    
+8. Start the development server and visit http://127.0.0.1:8000/admin/ to create a host (need the Admin app enabled)::
    
     python2.7 manage.py runserver 0.0.0.0:8000
 
-8. Visit http://127.0.0.1:8000/monitor/ to see the host list.
+9. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
-9. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
+10. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
 
     python2.7 manage.py monitord
