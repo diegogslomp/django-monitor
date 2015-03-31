@@ -52,7 +52,7 @@ How-To
 4. Start the development server and visit http://127.0.0.1:8000/admin/
    to create a host (need the Admin app enabled)::
    
-   `python2.7 manage.py runserver 0.0.0.0:8000`
+   python2.7 manage.py runserver 0.0.0.0:8000
 
 5. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
