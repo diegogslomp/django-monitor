@@ -8,7 +8,7 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. Installing `Django <https://www.djangoproject.com>`_ and django-monitor on a fresh Centos 6.6 install. More info `here <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_::
+1. Check how to install `Django <https://www.djangoproject.com>`_ and django-monitor on a fresh Centos 6.6. More info `here <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_::
     
     ifup eth0
     iptables -F
