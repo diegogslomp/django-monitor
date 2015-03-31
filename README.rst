@@ -63,4 +63,5 @@ How-To
 
 10. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
 
-    python2.7 manage.py monitord
+        python2.7 manage.py monitord
+    
