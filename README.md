@@ -42,19 +42,20 @@ How-To
 
 4. Add "monitor" to your INSTALLED_APPS setting like this::
 
+    ```
     INSTALLED_APPS = (
         ...
         'monitor',
     )
+    ```
+    
+2. Include the polls URLconf in your project urls.py:
 
-2. Include the polls URLconf in your project urls.py::
-
+    ```
     url(r'^monitor/', include('monitor.urls')),
+    ```
 
-3. Run `python manage.py migrate` to create the hosts models::
-
-    python2.7 manage.py runserver 0.0.0.0:8080
-    python2.7 manage.py daemon.py
+3. Run `python manage.py migrate` to create the hosts models.
 
 4. Start the development server and visit http://127.0.0.1:8000/admin/
    to create a host (you'll need the Admin app enabled).
