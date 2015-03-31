@@ -8,7 +8,7 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. Installing [Django](https://www.djangoproject.com) and django-monitor on a fresh Centos 6.6 install. More info [here](http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5)::
+1. Installing `Django <https://www.djangoproject.com>`_ and django-monitor on a fresh Centos 6.6 install. More info `here <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_::
     
     ifup eth0
     iptables -F
@@ -43,17 +43,21 @@ How-To
         'monitor',
     )
     
-2. Include the monitor URLconf in your project urls.py::
+5. Include the monitor URLconf in your project urls.py::
 
     url(r'^monitor/', include('monitor.urls')),
 
-3. Run `python2.7 manage.py migrate` to create the hosts models.
+6. Migrate hosts models to project's database::
 
-4. Start the development server and visit http://127.0.0.1:8000/admin/
+    python2.7 manage.py migrate
+
+7. Start the development server and visit http://127.0.0.1:8000/admin/
    to create a host (need the Admin app enabled)::
    
-   python2.7 manage.py runserver 0.0.0.0:8000
+    python2.7 manage.py runserver 0.0.0.0:8000
 
-5. Visit http://127.0.0.1:8000/monitor/ to see the host list.
+8. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
-6. Add hosts, run `python manage.py monitord` and input SSH credentials to start monitoring. 
+9. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
+
+    python2.7 manage.py monitord
