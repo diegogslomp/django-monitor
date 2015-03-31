@@ -19,6 +19,7 @@ setup(
     author='Diego G. Slomp',
     author_email='diegogslomp@gmail.com',
     classifiers=[
+        'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: IT Administrators',
@@ -27,5 +28,10 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
+    ],
+    keywords='monitor services linux',
+    install_requires=[
+        'Django>=1.7',
+        'paramiko'
     ],
 )
