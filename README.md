@@ -25,7 +25,7 @@ How-To
     make altinstall
     export PATH="/usr/local/bin:$PATH"
     curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -
-    pip2.7 install django setuptools paramiko
+    pip2.7 install django
     ```
     
 2. Create a project:
@@ -49,7 +49,7 @@ How-To
     )
     ```
     
-2. Include the polls URLconf in your project urls.py:
+2. Include the monitor URLconf in your project urls.py:
 
     ```
     url(r'^monitor/', include('monitor.urls')),
