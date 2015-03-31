@@ -28,7 +28,7 @@ How-To
     pip2.7 install django setuptools paramiko
     ```
     
-2. Create a project::
+2. Create a project:
 
     ```bash
     cd /opt/
@@ -36,7 +36,7 @@ How-To
     cd mysite/
     ```
     
-3. Download and Install app from github::
+3. Download and Install app from github:
 
     `pip2.7 install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz`
 
@@ -62,4 +62,4 @@ How-To
 
 5. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
-6. Add hosts, run `python manage.py daemon` and input SSH credentials to start monitoring. 
+6. Add hosts, run `python manage.py monitord` and input SSH credentials to start monitoring. 
