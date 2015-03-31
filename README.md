@@ -8,7 +8,7 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. Bellow check how to install [Django](https://www.djangoproject.com) and get django-monitor app working on a fresh Centos 6.6 install. More info [here](http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5):
+1. Installing [Django](https://www.djangoproject.com) and django-monitor on a fresh Centos 6.6 install. More info [here](http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5):
 
     ```bash
     ifup eth0
@@ -28,7 +28,7 @@ How-To
     pip2.7 install django setuptools paramiko
     ```
     
-2. Create a project::
+2. Create a project:
 
     ```bash
     cd /opt/
@@ -36,9 +36,9 @@ How-To
     cd mysite/
     ```
     
-3. Download and Install app from github::
+3. Download and Install app from github:
 
-    `pip2.7 install https://github.com/chonpz28/django-monitor/blob/development/dist/django-monitor-0.1.tar.gz?raw=true`
+    `pip2.7 install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz`
 
 4. Add "monitor" to your INSTALLED_APPS setting:
 
@@ -58,8 +58,8 @@ How-To
 3. Run `python manage.py migrate` to create the hosts models.
 
 4. Start the development server and visit http://127.0.0.1:8000/admin/
-   to create a host (you'll need the Admin app enabled).
+   to create a host (need the Admin app enabled).
 
 5. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
-6. Add hosts, run `python manage.py daemon` and input SSH credentials to start the services monitoring. 
+6. Add hosts, run `python manage.py monitord` and input SSH credentials to start monitoring. 
