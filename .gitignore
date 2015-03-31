@@ -6,6 +6,5 @@
 /templates/
 /manage.py
 /db.sqlite3
-/dist/
 /django_monitor.egg-info/
 
