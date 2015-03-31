@@ -8,8 +8,9 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. Bellow check how to install [Django](https://www.djangoproject.com) and get django-monitor app working on a fresh Centos 6.6 install. More info [here](http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5)::
-    
+1. Bellow check how to install [Django](https://www.djangoproject.com) and get django-monitor app working on a fresh Centos 6.6 install. More info [here](http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5):
+
+    ```bash
     ifup eth0
     iptables -F
     yum update -y
@@ -25,16 +26,19 @@ How-To
     export PATH="/usr/local/bin:$PATH"
     curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -
     pip2.7 install django setuptools paramiko
+    ```
     
 2. Create a project::
 
+    ```bash
     cd /opt/
     django-admin.py startproject mysite
     cd mysite/
-
+    ```
+    
 3. Download and Install app from github::
 
-    pip2.7 install https://github.com/chonpz28/django-monitor/blob/development/dist/django-monitor-0.1.tar.gz?raw=true
+    `pip2.7 install https://github.com/chonpz28/django-monitor/blob/development/dist/django-monitor-0.1.tar.gz?raw=true`
 
 4. Add "monitor" to your INSTALLED_APPS setting like this::
 
