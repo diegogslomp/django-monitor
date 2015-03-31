@@ -40,7 +40,7 @@ How-To
 
     `pip2.7 install https://github.com/chonpz28/django-monitor/blob/development/dist/django-monitor-0.1.tar.gz?raw=true`
 
-4. Add "monitor" to your INSTALLED_APPS setting like this::
+4. Add "monitor" to your INSTALLED_APPS setting:
 
     ```
     INSTALLED_APPS = (
