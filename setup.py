@@ -24,8 +24,6 @@ setup(
         'Intended Audience :: IT Administrators',
         'License :: MIT License',
         'Operating System :: Linux',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
