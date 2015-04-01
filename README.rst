@@ -33,19 +33,19 @@ How-To
 
 7. Migrate hosts models to project's database::
 
-    python2.7 manage.py migrate
+    python manage.py migrate
 
 8. Create superuser if not created yet::
 
-    python2.7 manage.py createsuperuser
+    python manage.py createsuperuser
     
-9. Start the development server and visit http://127.0.0.1:8000/admin/ to create a host (need the Admin app enabled)::
+9. Start the development server and visit http://localhost:8000/admin/ to create a host (need the Admin app enabled)::
    
-    python2.7 manage.py runserver 0.0.0.0:8000
+    python manage.py runserver 0.0.0.0:8000
 
-10. Visit http://127.0.0.1:8000/monitor/ to see the host list.
+10. Visit http://localhost:8000/monitor/ to see the host list.
 
 11. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
 
-        python2.7 manage.py monitord
+        python manage.py monitord
     
