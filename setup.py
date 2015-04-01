@@ -26,6 +26,7 @@ setup(
         'License :: MIT License',
         'Operating System :: Linux',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
