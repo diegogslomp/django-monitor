@@ -8,60 +8,43 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. Check how to install `Django <https://www.djangoproject.com>`_ and django-monitor on a fresh Centos 6.6. More info `here <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_::
-    
-    ifup eth0
-    iptables -F
-    yum update -y
-    yum groupinstall -y 'development tools'
-    yum install -y zlib-devel bzip2-devel openssl-devel xz-libs wget sqlite-devel
-    wget https://www.python.org/ftp/python/2.7.9/Python-2.7.9.tar.xz
-    xz -d Python-2.7.9.tar.xz
-    tar -xvf Python-2.7.9.tar
-    cd Python-2.7.9
-    ./configure --prefix=/usr/local
-    make
-    make altinstall
-    export PATH="/usr/local/bin:$PATH"
-    curl https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py | python2.7 -
-    pip2.7 install django
-    
-2. Create a project::
+1. Recomended use `pyenv<https://github.com/yyuu/pyenv>`_ to Python >= 2.7.6 install.
+   
+2. For Centos 6.6 without pyenv, check this `link <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_. Don't forget to install `sqlite-devel` before compiling Python on Centos. 
+3. Create a project::
 
-    cd /opt/
     django-admin.py startproject mysite
-    cd mysite/
     
-3. Download and Install app from github::
+4. Download and Install app from github::
 
-    pip2.7 install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz
+    pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz
 
-4. Add "monitor" to your INSTALLED_APPS setting::
+5. Add "monitor" to your INSTALLED_APPS setting::
 
     INSTALLED_APPS = (
         ...
         'monitor',
     )
     
-5. Include the monitor URLconf in your project urls.py::
+6. Include the monitor URLconf in your project urls.py::
 
     url(r'^monitor/', include('monitor.urls')),
 
-6. Migrate hosts models to project's database::
+7. Migrate hosts models to project's database::
 
     python2.7 manage.py migrate
 
-7. Create superuser if not created yet::
+8. Create superuser if not created yet::
 
     python2.7 manage.py createsuperuser
     
-8. Start the development server and visit http://127.0.0.1:8000/admin/ to create a host (need the Admin app enabled)::
+9. Start the development server and visit http://127.0.0.1:8000/admin/ to create a host (need the Admin app enabled)::
    
     python2.7 manage.py runserver 0.0.0.0:8000
 
-9. Visit http://127.0.0.1:8000/monitor/ to see the host list.
+10. Visit http://127.0.0.1:8000/monitor/ to see the host list.
 
-10. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
+11. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
 
         python2.7 manage.py monitord
     
