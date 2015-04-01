@@ -8,9 +8,10 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. Recomended use `pyenv<https://github.com/yyuu/pyenv>`_ to Python >= 2.7.6 install.
+1. Recomended use `pyenv <https://github.com/yyuu/pyenv>`_ to Python >= 2.7.6 install.
    
-2. For Centos 6.6 without pyenv, check this `link <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_. Don't forget to install `sqlite-devel` before compiling Python on Centos. 
+2. For Centos 6.6 without pyenv, check this `link <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_. Don't forget to install `sqlite-devel` before compiling Python on Centos.
+
 3. Create a project::
 
     django-admin.py startproject mysite
