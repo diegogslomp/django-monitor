@@ -4,13 +4,16 @@ Monitor
 
 Monitor is a simple Web-based Django app to monitor linux hosts through ICMP packets (ping). Also, supports custom shell commands to verify host service states through SSH. The returned code will change the host status.
 
-
+.. image:: https://raw.githubusercontent.com/chonpz28/django-monitor/master/docs/host_list_example.png
+    :alt: Monitor Index Page
+    :align: center
+      
 How-To
 -------
 
 1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python >= 2.7.6 install.
    
-2. For Centos 6.6 without pyenv, see this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos6.6_install.sh>`_. More details in this `blog <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_. 
+2. To install Django on Centos 6.6, check this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos6.6_install.sh>`_.
 
 3. Create a project::
 
