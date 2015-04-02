@@ -2,15 +2,15 @@
 Monitor
 =======
 
-Monitor is a simple Web-based Django app to monitor linux hosts through ICMP packets. Add custom commands to verify host service state through SSH.
+Monitor is a simple Web-based Django app to monitor linux hosts through ICMP packets (ping). Also, supports custom shell commands to verify host service states through SSH. The returned code will change the host status.
 
 
 How-To
 -------
 
-1. Recomended use `pyenv <https://github.com/yyuu/pyenv>`_ to Python >= 2.7.6 install.
+1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python >= 2.7.6 install.
    
-2. For Centos 6.6 without pyenv, check this `link <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_. Don't forget to install `sqlite-devel` before compiling Python on Centos.
+2. For Centos 6.6 without pyenv, see this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos6.6_install.sh>`_. More details in this `blog <http://bicofino.io/blog/2014/01/16/installing-python-2-dot-7-6-on-centos-6-dot-5>`_. 
 
 3. Create a project::
 
@@ -35,17 +35,20 @@ How-To
 
     python manage.py migrate
 
-8. Create superuser if not created yet::
+8. Create superuser if a new project was created::
 
     python manage.py createsuperuser
     
-9. Start the development server and visit http://localhost:8000/admin/ to create a host (need the Admin app enabled)::
+9. Start the development server::
    
     python manage.py runserver 0.0.0.0:8000
-
-10. Visit http://localhost:8000/monitor/ to see the host list.
-
-11. Add hosts, run the monitor daemon and input SSH credentials to start monitoring::
-
-        python manage.py monitord
     
+10. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
+
+11. Run the monitor daemon and input SSH credentials to start monitoring::
+
+      python manage.py monitord
+
+12. Visit http://localhost:8000/monitor/
+
+13. Enjoy!!
