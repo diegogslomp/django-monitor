@@ -6,6 +6,8 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 
 .. image:: https://raw.githubusercontent.com/chonpz28/django-monitor/master/docs/host_list_example.png
     :alt: Monitor Index Page
+    :width: 730
+    :height: 290
     :align: center
       
 How-To
