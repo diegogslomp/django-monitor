@@ -13,9 +13,7 @@ Monitor is a simple Web-based Django app to monitor linux hosts through ICMP pac
 How-To
 -------
 
-1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python >= 2.7.6 install.
-   
-2. To install Django on Centos 6.6, check this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos6.6_install.sh>`_.
+1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python install. See this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos6.6_install.sh>`_ to install it on Centos 6.6. 
 
 3. Create a project::
 
@@ -56,4 +54,4 @@ How-To
 
 12. Visit http://localhost:8000/monitor/
 
-13. Enjoy!!
+13. Enjoy!
