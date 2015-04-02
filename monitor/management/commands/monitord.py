@@ -20,7 +20,7 @@ class Command(BaseCommand):
             host.save()
          
         # Get SSH info
-        user = raw_input("User: ")
+        user = input("User: ")
         pw = getpass.getpass()
 
         while(True):
@@ -66,7 +66,7 @@ class Command(BaseCommand):
                     if return_code:
 
                         if host_status_tmp == "success":
-                            host.services_info = "Error: ";
+                            host.services_info = "Error: "
                         else:
                             host.services_info += str(", ")
 
