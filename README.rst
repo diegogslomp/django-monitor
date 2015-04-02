@@ -23,11 +23,7 @@ How-To
 
     pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz
 
-<<<<<<< HEAD
-5. Add "monitor" to your INSTALLED_APPS setting (/foo_project/settings.py)::
-=======
-4. Add "monitor" to your INSTALLED_APPS setting::
->>>>>>> e34970d59962c4c9700d881d642ff8db7aae360d
+4. Add "monitor" to your INSTALLED_APPS setting (/foo_project/settings.py)::
 
     INSTALLED_APPS = (
         ...
