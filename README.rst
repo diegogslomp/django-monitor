@@ -17,13 +17,13 @@ How-To
 
 3. Create a project::
 
-    django-admin.py startproject mysite
+    django-admin.py startproject foo_project
     
 4. Download and Install app from github::
 
     pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz
 
-5. Add "monitor" to your INSTALLED_APPS setting::
+5. Add "monitor" to your INSTALLED_APPS setting (/foo_project/settings.py)::
 
     INSTALLED_APPS = (
         ...
@@ -43,7 +43,7 @@ How-To
     python manage.py createsuperuser
     
 9. Start the development server::
-   
+
     python manage.py runserver 0.0.0.0:8000
     
 10. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
