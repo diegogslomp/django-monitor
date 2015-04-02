@@ -15,43 +15,43 @@ How-To
 
 1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python install. See this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos6.6_install.sh>`_ to install it on Centos 6.6. 
 
-3. Create a project::
+2. Create a project::
 
     django-admin.py startproject mysite
     
-4. Download and Install app from github::
+3. Download and Install app from github::
 
     pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz
 
-5. Add "monitor" to your INSTALLED_APPS setting::
+4. Add "monitor" to your INSTALLED_APPS setting::
 
     INSTALLED_APPS = (
         ...
         'monitor',
     )
     
-6. Include the monitor URLconf in your project urls.py::
+5. Include the monitor URLconf in your project urls.py::
 
     url(r'^monitor/', include('monitor.urls')),
 
-7. Migrate hosts models to project's database::
+6. Migrate hosts models to project's database::
 
     python manage.py migrate
 
-8. Create superuser if a new project was created::
+7. Create superuser if a new project was created::
 
     python manage.py createsuperuser
     
-9. Start the development server::
+8. Start the development server::
    
     python manage.py runserver 0.0.0.0:8000
     
-10. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
+9. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
 
-11. Run the monitor daemon and input SSH credentials to start monitoring::
+10. Run the monitor daemon and input SSH credentials to start monitoring::
 
       python manage.py monitord
 
-12. Visit http://localhost:8000/monitor/
+11. Visit http://localhost:8000/monitor/
 
-13. Enjoy!
+12. Enjoy!
