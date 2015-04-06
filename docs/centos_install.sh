@@ -1,9 +1,8 @@
 #!/bin/bash
-#Installs pyenv on a Centos6.6 fresh install 
+#Installs pyenv on a Centos
 
-sudo ifup eth0
-sudo iptables -F
-sudo yum update -y
+yum update -y
+yum install -y zlib-devel bzip2 bzip2-devel readline-devel sqlite sqlite-devel openssl-devel
 
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
