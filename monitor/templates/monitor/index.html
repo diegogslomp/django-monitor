@@ -23,11 +23,11 @@
             <tbody>
             {% for host in host_list %}
             <tr class="{{ host.status }}">
-                <td><a href="{% url 'monitor:detail' host.id %}">{{ host.name }}</a></td>
-                <td><a href="{% url 'monitor:detail' host.id %}">{{ host.ipv4 }}</a></td>
-                <td><a href="{% url 'monitor:detail' host.id %}">{{ host.description }}</a></td>
-                <td><a href="{% url 'monitor:detail' host.id %}">{{ host.services_info }}</a></td>
-                <td><a href="{% url 'monitor:detail' host.id %}">{{ host.last_check|date:"H:i" }}</a></td>
+                <td><a class="text-{{ host.status }}" href="{% url 'monitor:detail' host.id %}">{{ host.name }}</a></td>
+                <td><a class="text-{{ host.status }}" href="{% url 'monitor:detail' host.id %}">{{ host.ipv4 }}</a></td>
+                <td><a class="text-{{ host.status }}" href="{% url 'monitor:detail' host.id %}">{{ host.description }}</a></td>
+                <td><a class="text-{{ host.status }}" href="{% url 'monitor:detail' host.id %}">{{ host.services_info }}</a></td>
+                <td><a class="text-{{ host.status }}" href="{% url 'monitor:detail' host.id %}">{{ host.last_check|date:"H:i" }}</a></td>
             </tr>
             {% endfor %}
             </tbody>
