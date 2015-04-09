@@ -2,7 +2,7 @@
 #Installs pyenv on a Ubuntu/Debian
 
 sudo apt-get update -y
-sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm
+sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm git
 
 curl -L https://raw.githubusercontent.com/yyuu/pyenv-installer/master/bin/pyenv-installer | bash
 echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
