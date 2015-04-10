@@ -27,7 +27,7 @@ class Host(models.Model):
     )
     status = models.CharField(max_length=10,
                               choices=STATUS_CHOICES,
-                              default='',
+                              default='default',
                               blank=True)
 
     def __str__(self):
