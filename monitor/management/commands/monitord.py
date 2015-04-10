@@ -15,7 +15,7 @@ class Command(BaseCommand):
 
         for host in host_list:
             host.services_info = ''
-            host.status = ''
+            host.status = 'default'
             host.last_check = None
             host.save()
          
