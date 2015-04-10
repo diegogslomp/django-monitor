@@ -48,38 +48,36 @@ class Command(BaseCommand):
 
                     if cmd == '':
                         break
-
-                    self.stdout.write('Service Verify Command: %s' % cmd)
-
+                        
+                    self.stdout.write('Trying SSH connection to host: %s' % host.name)
                     # SSH connection...
-                    client = paramiko.SSHClient()
-                    client.set_missing_host_key_policy(paramiko.WarningPolicy())
-                    client.connect(host.ipv4, username=user, password=pw)
-                    chan = client.get_transport().open_session()
-                    self.stdout.write('running %s' % cmd)
-                    chan.exec_command(cmd)
-                    return_code = chan.recv_exit_status()
-                    self.stdout.write('exit status: %s' % return_code)
-                    client.close()
-
-                    # if service verify get error change html state and info
-                    if return_code:
-
-                        if host_status_tmp == 'success':
-                            host.services_info = 'Error: '
-                        else:
-                            host.services_info += str(', ')
-
-                        host_status_tmp = 'danger'
-                        host.services_info += str('%s' % service.name)
-
+                    try:
+                        client = paramiko.SSHClient()
+                        client.set_missing_host_key_policy(paramiko.WarningPolicy())
+                        client.connect(host.ipv4, username=user, password=pw)
+                        chan = client.get_transport().open_session()
+                        self.stdout.write('running %s' % cmd)
+                        chan.exec_command(cmd)
+                        return_code = chan.recv_exit_status()
+                        self.stdout.write('exit status: %s' % return_code)
+                        client.close()
+                        # if service verify get error change html state and info
+                        if not str(return_code) == str(service.return_expected):
+                            if host_status_tmp == 'success' or 'warning':
+                                host.services_info = ''
+                            else:
+                                host.services_info += str(', ')
+                            host_status_tmp = 'danger'
+                            host.services_info += str('%s' % service.name)
+                    except:
+                        self.stdout.write('Error: No SSH connection on host: %s' % host.name)
+                        host.services_info = 'No SSH connection'
+                        host_status_tmp = 'warning'
+                        
                 host.status = host_status_tmp
                 host.save()
                 time.sleep(1)
 
             # Update host list
             host_list = Host.objects.all()
-
-            # for oneloop tests
-            #break
 
