@@ -39,7 +39,6 @@ class Command(BaseCommand):
                     host_service_list = host.services.all()
                     host_status_tmp = 'success'
                     host_services_info_tmp = ''
-                    self.stdout.write('TESTEEE: %s' % host_service_list.count())
                     if host_service_list.count() != 0:
                         # SSH connection
                         try:
