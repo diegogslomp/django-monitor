@@ -5,7 +5,6 @@ class Service(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
     verify_command = models.CharField(max_length=200, blank=True)
-    return_expected = models.CharField(max_length=200, blank=True)
 
     def __str__(self):
         return self.name
