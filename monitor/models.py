@@ -19,7 +19,7 @@ class Host(models.Model):
     last_check = models.DateTimeField('last check', null=True, blank=True)
 
     STATUS_CHOICES = (
-        ('', 'Default'),
+        ('default', 'Default'),
         ('success', 'Ok'),
         ('warning', 'Warning'),
         ('danger', 'Critical'),
