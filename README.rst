@@ -33,7 +33,7 @@ How-To
     
 5. Include the monitor URLconf in your project urls.py::
 
-    url(r'^monitor/', include('monitor.urls')),
+    url(r'^monitor/', include('monitor.urls', namespace='monitor')),
 
 6. Migrate hosts models to project's database::
 
