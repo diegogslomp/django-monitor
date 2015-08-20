@@ -59,7 +59,7 @@ class Command(BaseCommand):
                                 # if service verify get error change html state and info
                                 if not str(return_code) == '0':
                                     if host_status_tmp == 'success' or 'warning':
-                                        host_services_info_tmp = ''
+                                        host_services_info_tmp = 'Error: '
                                     else:
                                         host_services_info_tmp += str(', ')
                                     host_status_tmp = 'danger'

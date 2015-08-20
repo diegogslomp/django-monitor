@@ -13,7 +13,7 @@ class Service(models.Model):
 class Host(models.Model):
     name = models.CharField(max_length=200)
     description = models.CharField(max_length=200)
-    ipv4 = models.CharField(max_length=200)
+    ipv4 = models.GenericIPAddressField(protocol='IPv4')
     services = models.ManyToManyField(Service, blank=True)
     services_info = models.CharField(max_length=200, blank=True)
     last_check = models.DateTimeField('last check', null=True, blank=True)
