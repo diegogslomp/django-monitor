@@ -6,7 +6,7 @@ import paramiko, getpass, subprocess, time
 class Command(BaseCommand):
 
     args = ''
-    help = 'Monitor Daemon for PMCS Monitor hosts'
+    help = 'Monitor Daemon for Monitor hosts'
 
     def handle(self, *args, **options):
 
