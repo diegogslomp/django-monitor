@@ -2,7 +2,7 @@
 Monitor
 =======
 
-Monitor is a simple Web-based Django app to monitor linux host services. Create services adding custom shell commands to check service status through SSH using `this daemon <https://github.com/chonpz28/django-monitor/blob/master/monitor/management/commands/monitord.py>`_). The returned code will change the host status.
+Monitor is a simple Web-based Django app to monitor linux host services. Create services adding custom shell commands to check service status through SSH using `this daemon <https://github.com/chonpz28/django-monitor/blob/master/monitor/management/commands/monitord.py>`_. The returned code will change the host status.
 
 .. image:: https://raw.githubusercontent.com/chonpz28/django-monitor/master/docs/host_list_example.png
     :alt: Monitor Index Page
