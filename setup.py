@@ -12,7 +12,7 @@ setup(
     version='0.1',
     packages=['monitor'],
     include_package_data=True,
-    license='MIT License',
+    license='Apache 2 License',
     description='A simple Web-based Django app to monitor linux hosts.',
     long_description=README,
     url='https://github.com/chonpz28/django-monitor/',
