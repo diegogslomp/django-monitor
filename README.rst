@@ -56,3 +56,8 @@ How-To
 11. Visit http://localhost:8000/monitor/
 
 12. Enjoy!
+
+
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/chonpz28/django-monitor
+   :target: https://gitter.im/chonpz28/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
