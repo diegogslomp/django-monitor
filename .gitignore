@@ -10,4 +10,4 @@
 __pycache__/
 static/
 .idea/
-
+env/

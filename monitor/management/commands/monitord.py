@@ -74,7 +74,6 @@ class Command(BaseCommand):
                 host.status = host_status_tmp
                 host.services_info = host_services_info_tmp
                 host.save()
-                time.sleep(1)
 
             # Update host list
             host_list = Host.objects.all()

@@ -2,6 +2,10 @@
 Monitor
 =======
 
+.. image:: https://badges.gitter.im/Join%20Chat.svg
+   :alt: Join the chat at https://gitter.im/chonpz28/django-monitor
+   :target: https://gitter.im/chonpz28/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
 Monitor is a simple Web-based Django app to monitor linux host services. Create services adding custom shell commands to check service status through SSH using `this daemon <https://github.com/chonpz28/django-monitor/blob/master/monitor/management/commands/monitord.py>`_. The returned code will change the host status.
 
 .. image:: https://raw.githubusercontent.com/chonpz28/django-monitor/master/docs/host_list_example.png
@@ -22,7 +26,7 @@ How-To
     
 3. Download and Install app from github::
 
-    pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.tar.gz
+    pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.0.1.tar.gz
 
 4. Add "monitor" to project's setting INSTALLED_APPS (/foo_project/foo_project/settings.py)::
 
@@ -58,6 +62,3 @@ How-To
 12. Enjoy!
 
 
-.. image:: https://badges.gitter.im/Join%20Chat.svg
-   :alt: Join the chat at https://gitter.im/chonpz28/django-monitor
-   :target: https://gitter.im/chonpz28/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
