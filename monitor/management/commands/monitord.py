@@ -18,20 +18,20 @@ class Command(BaseCommand):
             host.status = 'default'
             host.last_check = None
             host.save()
-         
+
         # Get SSH info
         user = input('User: ')
         pw = getpass.getpass()
 
         while(True):
-            
+
             for host in host_list:
 
                 self.stdout.write('Hostname: %s' % host.name)
-                host.last_check = timezone.now() 
-                return_code = subprocess.call('ping %s -c 1 -W 2' % host.ipv4, shell=True) 
-                
-                # if ping get error
+                host.last_check = timezone.now()
+                return_code = subprocess.call('ping %s -c 1 -W 2' % host.ipv4, shell=True)
+
+                # If ping get error
                 if return_code:
                     host_status_tmp = 'danger'
                     host_services_info_tmp = 'No connection'
@@ -47,7 +47,7 @@ class Command(BaseCommand):
                             client.set_missing_host_key_policy(paramiko.WarningPolicy())
                             client.connect(host.ipv4, username=user, password=pw)
                             chan = client.get_transport().open_session()
-                            # for every service, check
+                            # For every service, check
                             for service in host_service_list:
 
                                 cmd = service.verify_command
@@ -56,7 +56,7 @@ class Command(BaseCommand):
                                 chan.exec_command(cmd)
                                 return_code = chan.recv_exit_status()
                                 self.stdout.write('exit status: %s' % return_code)
-                                # if service verify get error change html state and info
+                                # If service verify get error change html state and info
                                 if not str(return_code) == '0':
                                     if host_status_tmp == 'success' or 'warning':
                                         host_services_info_tmp = 'Error: '
@@ -70,10 +70,13 @@ class Command(BaseCommand):
                                 self.stdout.write('Error: No SSH connection on host: %s' % host.name)
                                 host_services_info_tmp = 'No SSH connection'
                                 host_status_tmp = 'warning'
-                #Update host
+                # Update host
                 host.status = host_status_tmp
                 host.services_info = host_services_info_tmp
-                host.save()
+                # If the host is still in the db (not deleted), save it
+                if host in Host.objects.all():
+                    host.save()
+                time.sleep(1)
 
             # Update host list
             host_list = Host.objects.all()
