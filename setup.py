@@ -9,11 +9,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-monitor',
-    version='0.0.3',
+    version='0.1.0',
     packages=['monitor'],
     include_package_data=True,
     license='MIT License',
-    description='A simple Web-based Django app to monitor linux hosts.',
+    description='A simple Web-based Django app to monitor hosts.',
     long_description=README,
     url='https://github.com/chonpz28/django-monitor/',
     author='Diego Gobbi Slomp',

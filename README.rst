@@ -6,7 +6,7 @@ Monitor
    :alt: Join the chat at https://gitter.im/chonpz28/django-monitor
    :target: https://gitter.im/chonpz28/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-Monitor is a simple Web-based Django app to monitor linux host services. Create services adding custom shell commands to check service status through SSH using `this daemon <https://github.com/chonpz28/django-monitor/blob/master/monitor/management/commands/monitord.py>`_. The returned code will change the host status.
+Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to monitor hosts through ICMP packets (ping) using `this daemon <https://github.com/chonpz28/django-monitor/blob/master/monitor/management/commands/monitord.py>`_.
 
 .. image:: https://raw.githubusercontent.com/chonpz28/django-monitor/master/docs/host_list_example.png
     :alt: Monitor Index Page
@@ -26,7 +26,7 @@ How-To
     
 3. Download and Install app from github::
 
-    pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.0.2.tar.gz
+    pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.0.tar.gz
 
 4. Add "monitor" to project's setting INSTALLED_APPS (/foo_project/foo_project/settings.py)::
 

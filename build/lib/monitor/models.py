@@ -21,9 +21,9 @@ class Host(models.Model):
     STATUS_INFO_CHOICES = (
         '',
         '',
-        'Conectado a menos de {0} dia'.format(DAYS_FROM_INFO_TO_SUCCESS),
-        'Sem conexão a mais de {0} dias'.format(DAYS_FROM_DANGER_TO_WARNING),
-        'Sem conexão',
+        'Connected less than {0} day'.format(DAYS_FROM_INFO_TO_SUCCESS),
+        'More than {0} days without connection'.format(DAYS_FROM_DANGER_TO_WARNING),
+        'No Connection',
     )
 
     status = models.IntegerField(choices=STATUS_CHOICES, default=0)
