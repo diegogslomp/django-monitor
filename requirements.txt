@@ -1,5 +1,4 @@
-Django==1.9.2
-ecdsa==0.13
-paramiko==1.16.0
-pycrypto==2.6.1
-wheel==0.24.0
+Django
+ecdsa
+paramiko
+pycrypto

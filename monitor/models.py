@@ -10,12 +10,18 @@ class Host(models.Model):
     last_check = models.DateTimeField('last check', default=timezone.now)
     last_status_change = models.DateTimeField('last status change', default=timezone.now)
 
+    DEFAULT = 0
+    SUCCESS = 1
+    INFO = 2
+    WARNING = 3
+    DANGER = 4
+
     STATUS_CHOICES = (
-        (0, 'default'),
-        (1, 'success'),
-        (2, 'info'),
-        (3, 'warning'),
-        (4, 'danger'),
+        (DEFAULT, 'default'),
+        (SUCCESS, 'success'),
+        (INFO, 'info'),
+        (WARNING, 'warning'),
+        (DANGER, 'danger'),
     )
 
     STATUS_INFO_CHOICES = (
@@ -26,7 +32,7 @@ class Host(models.Model):
         'No Connection',
     )
 
-    status = models.IntegerField(choices=STATUS_CHOICES, default=0)
+    status = models.IntegerField(choices=STATUS_CHOICES, default=DEFAULT)
 
     def status_info(self):
         return self.STATUS_INFO_CHOICES[self.status]

@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-monitor',
-    version='0.1.0',
+    version='0.1.1',
     packages=['monitor'],
     include_package_data=True,
     license='MIT License',
@@ -22,13 +22,15 @@ setup(
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
         'Framework :: Django',
-        'Framework :: Django :: 1.9',
+        'Framework :: Django:: 1.9',
+        'Framework :: Django:: 1.10',
         'Intended Audience :: System Administrators',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX :: Linux',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Topic :: Internet :: WWW/HTTP',
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
         'Topic :: System :: Monitoring',
@@ -36,7 +38,7 @@ setup(
     ],
     keywords='monitor services linux',
     install_requires=[
-        'Django==1.9.2',
-        'paramiko==1.16.0'
+        'Django',
+        'paramiko'
     ],
 )
