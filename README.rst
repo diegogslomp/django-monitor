@@ -53,7 +53,7 @@ How-To
     
 9. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
 
-10. Run the monitor daemon and input SSH credentials to start monitoring::
+10. Run the monitor daemon to start monitoring::
 
       python manage.py monitord
 
