@@ -1,3 +1,5 @@
+# Distribution / packaging
+build/
 /*.egg-info/
 *.pyc
 *.log
