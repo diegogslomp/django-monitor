@@ -10,6 +10,5 @@ build/
 /manage.py
 *.sqlite3
 __pycache__/
-static/
 .idea/
 env/

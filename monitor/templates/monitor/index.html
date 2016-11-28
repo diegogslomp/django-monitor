@@ -6,6 +6,7 @@
         <meta http-equiv="refresh" content="15" >
     </head>
     <link rel="stylesheet" type="text/css" href="{% static 'monitor/css/bootstrap.min.css' %}" />
+    <link rel="shortcut icon" href="{%  static 'monitor/favicon.ico' %}">
     <body>
 
     {% if host_list %}
@@ -13,8 +14,7 @@
         <table class="table table-hover table-condensed">
             <thead>
             <tr>
-                <th>Hostname</th>
-                <th>IP Address</th>
+                <th>Address</th>
                 <th>Description</th>
                 <th>Status</th>
                 <th>Last Status Change</th>
@@ -23,16 +23,15 @@
             </thead>
 
             <tbody>
-            {% for host in host_list %}
-            <tr class="{{ host.get_status_display }}">
-                <td class="text-{{ host.get_status_display }}">{{ host.name }}</td>
-                <td class="text-{{ host.get_status_display }}">{{ host.ipv4 }}</td>
-                <td class="text-{{ host.get_status_display }}">{{ host.description_upper }}</td>
-                <td class="text-{{ host.get_status_display }}">{{ host.status_info }}</td>
-                <td align="center" class="text-{{ host.get_status_display }}">{{ host.last_status_change|date:"d/m/y - H:i" }}</td>
-                <td align="center" class="text-{{ host.get_status_display }}">{{ host.last_check|date:"H:i" }}</td>
-            </tr>
-            {% endfor %}
+                {% for host in host_list %}
+                <tr class="{{ host.get_status_display }}">
+                    <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.ipv4 }}</strong></a></td>
+                    <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.description_upper }}</strong></a></td>
+                    <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}">{{ host.status_info }}</a></td>
+                    <td><a align="center" class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.last_status_change|date:"d/m/y - H:i" }}</strong></a></td>
+                    <td><a align="center" class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}">{{ host.last_check|date:"H:i" }}</a></td>
+                </tr>
+                {% endfor %}
             </tbody>
         </table>
     {% else %}

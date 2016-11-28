@@ -28,8 +28,8 @@ class Host(models.Model):
         '',
         '',
         'Connected less than {0} day'.format(DAYS_FROM_INFO_TO_SUCCESS),
-        'More than {0} days without connection'.format(DAYS_FROM_DANGER_TO_WARNING),
-        'No Connection',
+        'No connection more than {0} days'.format(DAYS_FROM_DANGER_TO_WARNING),
+        'Connection lost',
     )
 
     status = models.IntegerField(choices=STATUS_CHOICES, default=DEFAULT)
@@ -42,3 +42,12 @@ class Host(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Log(models.Model):
+    host = models.ForeignKey(Host, on_delete=models.CASCADE)
+    status = models.IntegerField(choices=Host.STATUS_CHOICES)
+    status_change = models.DateTimeField()
+
+    def __str__(self):
+        return self.host.name

@@ -1,8 +1,8 @@
 from django.core.management.base import BaseCommand
 from django.utils import timezone
 from django.db.utils import DatabaseError
-from monitor.models import Host
-from monitor.settings import DAYS_FROM_DANGER_TO_WARNING, DAYS_FROM_INFO_TO_SUCCESS, WAIT_FOR_NEXT
+from monitor.models import Log, Host
+from monitor.settings import DAYS_FROM_DANGER_TO_WARNING, DAYS_FROM_INFO_TO_SUCCESS, WAIT_FOR_NEXT, MAX_LOG
 import subprocess
 import time
 import datetime
@@ -40,13 +40,14 @@ class Command(BaseCommand):
                     # if is already up and more than 1 (default) day, 'success' status
                     if host.status in (Host.SUCCESS, Host.INFO) and host.last_status_change <= \
                             (now - datetime.timedelta(days=DAYS_FROM_INFO_TO_SUCCESS)):
-                        status_tmp = Host.SUCCESS  # 'success'
+                        status_tmp = Host.SUCCESS
 
                 # Update host if status changed
                 if host.status != status_tmp:
                     # Don't change last updated time for warning or success changes
                     if status_tmp != Host.WARNING and status_tmp != Host.SUCCESS:
                         host.last_status_change = now
+                        Log.objects.create(host=host, status=status_tmp, status_change=now)
                     host.status = status_tmp
 
                 # If the host still in the db, save it
