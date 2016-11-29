@@ -5,4 +5,4 @@ DAYS_FROM_INFO_TO_SUCCESS = 1
 # Time to wait after each host check in seconds (0..) 
 WAIT_FOR_NEXT = 1
 # Max log lines for each host
-MAX_LOG = 10
+MAX_LOG_LINES = 10
