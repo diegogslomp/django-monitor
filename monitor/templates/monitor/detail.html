@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-    <head>
-        <title>Detailed Host</title>
-    </head> 
-    <link rel="stylesheet" type="text/css" href="{% static 'monitor/css/bootstrap.min.css' %}" />
-    <link rel="shortcut icon" href="{%  static 'monitor/favicon.ico' %}">
-    <body>
+{% extends "monitor/base.html" %}
+
+{% block title %} Detailed Host {% endblock %}
+
+{% block content %}
         <div class="panel panel-{{ host.get_status_display }}">
             <div class="panel-heading">{{ host.description }}</div>
             <div class="panel-body">
@@ -17,27 +13,26 @@
                     Last status change: {{ host.last_status_change|date:"d/m/y - H:i" }}<br>
                     Last check: {{ host.last_check|date:"d/m/y - H:i" }}<br>
                 </p>
-
-                <table class="table table-hover table-condensed">
-                    <thead>
-                        <tr>
-                            <th>Log<th>
-                        </tr>
-                    </thead>
-                <tbody>
-                    {% for log in host.log_set.all|dictsortreversed:"status_change" %}
-                    <tr class="{{ log.get_status_display }}">
-                        <td class="text-{{ log.get_status_display }}">{{ log.get_status_display }}</td>
-                        <td class="text-{{ log.get_status_display }}">{{ log.status_change }}</td>
-                    </tr>
-                    {% endfor %}
+                <p>
+                    Last Logs:
+                </p>
+                    <table class="table table-hover table-condensed">
+                    <tbody>
+                        {% if host.log_set.count > 0 %}
+                            {% for log in host.log_set.all|dictsortreversed:"status_change" %}
+                                <tr class="{{ log.get_status_display }}">
+                                    <td class="text-{{ log.get_status_display }}">{{ log.get_status_display|capfirst }}</td>
+                                    <td class="text-{{ log.get_status_display }}">{{ log.status_change }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                        <tr><span class="text-muted">No log registered yet</span></tr>
+                        {% endif %}
                     </tbody>
-                </table>
+                    </table>
             </div>
-
             <div class="panel-footer">
                 <a class="text-{{ host.get_status_display }} btn btn-{{ host.get_status_display }}" href="{% url 'monitor:index' %}">Return</a>
             </div>
         </div>
-    </body>
-</html>
+{% endblock %}

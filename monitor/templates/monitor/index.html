@@ -1,18 +1,12 @@
-<!DOCTYPE html>
-{% load staticfiles %}
-<html>
-    <head>
-        <title>Host List</title>
-        <meta http-equiv="refresh" content="15" >
-    </head>
-    <link rel="stylesheet" type="text/css" href="{% static 'monitor/css/bootstrap.min.css' %}" />
-    <link rel="shortcut icon" href="{%  static 'monitor/favicon.ico' %}">
-    <body>
+{% extends "monitor/base.html" %}
 
+{% block title %} Host List {% endblock %}
+{% block meta %} <meta http-equiv="refresh" content="15" > {% endblock %}
+
+{% block content %}
     {% if host_list %}
-
-        <table class="table table-hover table-condensed">
-            <thead>
+    <table class="table table-hover table-condensed">
+        <thead>
             <tr>
                 <th>Address</th>
                 <th>Description</th>
@@ -20,10 +14,9 @@
                 <th>Last Status Change</th>
                 <th>Last Check</th>
             </tr>
-            </thead>
-
-            <tbody>
-                {% for host in host_list %}
+        </thead>
+        <tbody>
+            {% for host in host_list %}
                 <tr class="{{ host.get_status_display }}">
                     <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.ipv4 }}</strong></a></td>
                     <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.description_upper }}</strong></a></td>
@@ -37,5 +30,4 @@
     {% else %}
         <p>No hosts are available.</p>
     {% endif %}
-    </body>
-</html>
+{% endblock %}

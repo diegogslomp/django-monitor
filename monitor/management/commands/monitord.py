@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand
 from django.utils import timezone
 from django.db.utils import DatabaseError
 from monitor.models import Log, Host
-from monitor.settings import DAYS_FROM_DANGER_TO_WARNING, DAYS_FROM_INFO_TO_SUCCESS, WAIT_FOR_NEXT
+from monitor.settings import DAYS_FROM_DANGER_TO_WARNING, DAYS_FROM_INFO_TO_SUCCESS, WAIT_FOR_NEXT, MAX_LOG_LINES
 import subprocess
 import time
 import datetime
@@ -47,7 +47,11 @@ class Command(BaseCommand):
                     # Don't change last updated time for warning or success changes
                     if status_tmp != Host.WARNING and status_tmp != Host.SUCCESS:
                         host.last_status_change = now
+                        # Add new log
                         Log.objects.create(host=host, status=status_tmp, status_change=now)
+                        # Remove logs based on MAX_LOG_LINES
+                        Log.objects.filter(pk__in=Log.objects.filter(host=host).order_by('-status_change')\
+                                                  .values_list('pk')[MAX_LOG_LINES:]).delete()
                     host.status = status_tmp
 
                 # If the host still in the db, save it
