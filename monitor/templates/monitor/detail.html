@@ -21,7 +21,7 @@
                         {% if host.log_set.count > 0 %}
                             {% for log in host.log_set.all|dictsortreversed:"status_change" %}
                                 <tr class="{{ log.get_status_display }}">
-                                    <td class="text-{{ log.get_status_display }}">{{ log.get_status_display|capfirst }}</td>
+                                    <td class="text-{{ log.get_status_display }}">{{ log.status_info }}</td>
                                     <td class="text-{{ log.get_status_display }}">{{ log.status_change }}</td>
                                 </tr>
                             {% endfor %}

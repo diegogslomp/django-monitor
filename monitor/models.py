@@ -46,5 +46,16 @@ class Log(models.Model):
     status = models.IntegerField(choices=Host.STATUS_CHOICES)
     status_change = models.DateTimeField()
 
+    STATUS_INFO_CHOICES = (
+        '',
+        '',
+        'Online',
+        '',
+        'Offline',
+    )
+
+    def status_info(self):
+        return self.STATUS_INFO_CHOICES[self.status]
+
     def __str__(self):
         return self.host.name
