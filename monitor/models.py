@@ -37,9 +37,6 @@ class Host(models.Model):
     def status_info(self):
         return self.STATUS_INFO_CHOICES[self.status]
 
-    def description_upper(self):
-        return self.description.upper()
-
     def __str__(self):
         return self.name
 

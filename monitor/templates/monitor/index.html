@@ -19,7 +19,7 @@
             {% for host in host_list %}
                 <tr class="{{ host.get_status_display }}">
                     <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.ipv4 }}</strong></a></td>
-                    <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.description_upper }}</strong></a></td>
+                    <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.description|upper }}</strong></a></td>
                     <td><a class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}">{{ host.status_info }}</a></td>
                     <td><a align="center" class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.last_status_change|date:"d/m/y - H:i" }}</strong></a></td>
                     <td><a align="center" class="text-{{ host.get_status_display }}" href="{% url 'monitor:detail' host.id %}">{{ host.last_check|date:"H:i" }}</a></td>
