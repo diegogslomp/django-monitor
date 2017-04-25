@@ -3,12 +3,12 @@ Monitor
 =======
 
 .. image:: https://badges.gitter.im/Join%20Chat.svg
-   :alt: Join the chat at https://gitter.im/chonpz28/django-monitor
-   :target: https://gitter.im/chonpz28/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+   :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
+   :target: https://gitter.im/diegogslomp/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to monitor hosts through ICMP packets (ping) using `this daemon <https://github.com/chonpz28/django-monitor/blob/master/monitor/management/commands/monitord.py>`_.
+Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to monitor hosts through ICMP packets (ping) using `this daemon <https://github.com/diegogslomp/django-monitor/blob/master/monitor/management/commands/monitord.py>`_. If there are registered ports, check status through telnet, tested on Enterasys S8, G3 and A4 series.
 
-.. image:: https://raw.githubusercontent.com/chonpz28/django-monitor/master/docs/host_list_example.png
+.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/host_list_example.png
     :alt: Monitor Index Page
     :width: 730
     :height: 290
@@ -17,7 +17,7 @@ Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to m
 How-To
 -------
 
-1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python install. See this `script <https://github.com/chonpz28/django-monitor/blob/master/docs/centos_install.sh>`_ to install it on Centos or `this <https://github.com/chonpz28/django-monitor/blob/master/docs/ubuntu_install.sh>`_ to install it on Ubuntu/Debian. 
+1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python install. See this `script <https://github.com/diegogslomp/django-monitor/blob/master/docs/centos_install.sh>`_ to install it on Centos or `this <https://github.com/diegogslomp/django-monitor/blob/master/docs/ubuntu_install.sh>`_ to install it on Ubuntu/Debian. 
  
 
 2. Create a project::
@@ -26,7 +26,7 @@ How-To
     
 3. Download and Install app from github::
 
-    pip install https://github.com/chonpz28/django-monitor/raw/master/dist/django-monitor-0.1.6.tar.gz
+    pip install https://github.com/diegogslomp/django-monitor/raw/master/dist/django-monitor-0.1.6.tar.gz
 
 4. Add "monitor" to project's setting INSTALLED_APPS (/foo_project/foo_project/settings.py)::
 

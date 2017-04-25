@@ -9,13 +9,13 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-monitor',
-    version='0.1.6',
+    version='0.1.7',
     packages=['monitor'],
     include_package_data=True,
     license='MIT License',
     description='A simple Web-based Django app to monitor hosts.',
     long_description=README,
-    url='https://github.com/chonpz28/django-monitor/',
+    url='https://github.com/diegogslomp/django-monitor/',
     author='Diego Gobbi Slomp',
     author_email='diegogslomp@gmail.com',
     classifiers=[
@@ -34,7 +34,7 @@ setup(
         'Topic :: System :: Monitoring',
         'Topic :: System :: Networking :: Monitoring',
     ],
-    keywords='monitor ping icmp',
+    keywords='monitor ping icmp telnet',
     install_requires=[
         'Django',
         'paramiko'
