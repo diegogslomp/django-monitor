@@ -1,4 +1,3 @@
-# Distribution / packaging
 build/
 /*.egg-info/
 *.pyc
@@ -11,4 +10,8 @@ build/
 *.sqlite3
 __pycache__/
 .idea/
+.ropeproject/
 env/
+monitor/management/commands/populate_db.py
+monitor/management/commands/test.py
+monitor/settings/local.py
