@@ -68,14 +68,14 @@ class Command(BaseCommand):
                 tn.write(tn_command.encode('ascii') + b"\n")
             tn.write(b"exit\n")
             # Filter telnet output lines
-            for line in tn.read_all().decode('ascii').replace('\r', '').split('\n'):
-                if 'no valid port' in line.lower() or 'invalid port' in line.lower():
+            for line in tn.read_all().decode('ascii').lower().replace('\r', '').split('\n'):
+                if any(word in line for word in ('no valid port', 'invalid port')):
                     self.logger.warning('Invalid port registered for host {0} ({1})'.format(host.ipv4, line))
                     self.status_tmp = Host.DANGER
-                    self.status_info_tmp = 'Invalid port configured or port module is down'
+                    self.status_info_tmp = 'Invalid port registered ({0}) or module is down'.format(line.split()[-1])
                     continue
                 for port in host_ports:
-                    if port.number in line and 'show port status' not in line and 'down' in line.lower():
+                    if all(word in line for word in (port.number, 'down')):
                         self.status_tmp = Host.DANGER
                         msg = 'Port {0} ({1}) is Down'.format(port.number, line.split()[1])
                         if self.status_info_tmp == 'Connected':
