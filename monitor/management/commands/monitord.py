@@ -5,10 +5,11 @@ from monitor.models import Log, Host, Port
 from monitor.settings.base import DAYS_FROM_DANGER_TO_WARNING, WAIT_FOR_NEXT, MAX_LOG_LINES
 from monitor.settings.base import USER, PASSWORD
 from telnetlib import Telnet
-import subprocess
-import time
 import datetime
 import logging
+import re
+import subprocess
+import time
 
 
 class Command(BaseCommand):
@@ -69,13 +70,13 @@ class Command(BaseCommand):
             tn.write(b"exit\n")
             # Filter telnet output lines
             for line in tn.read_all().decode('ascii').lower().replace('\r', '').split('\n'):
-                if any(word in line for word in ('no valid port', 'invalid port')):
+                if re.search(r'[no ,in]valid', line):
                     self.logger.warning('Invalid port registered for host {0} ({1})'.format(host.ipv4, line))
                     self.status_tmp = Host.DANGER
-                    self.status_info_tmp = 'Invalid port registered ({0}) or module is down'.format(line.split()[-1])
+                    self.status_info_tmp = 'Invalid port registered or module is Down'
                     continue
                 for port in host_ports:
-                    if all(word in line for word in (port.number, 'down')):
+                    if re.search(r'{0}.*down'.format(port.number), line):
                         self.status_tmp = Host.DANGER
                         msg = 'Port {0} ({1}) is Down'.format(port.number, line.split()[1])
                         if self.status_info_tmp == 'Connected':
