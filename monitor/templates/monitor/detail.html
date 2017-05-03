@@ -4,7 +4,9 @@
 
 {% block content %}
 <div class="ui {{ host.get_status_display }} message">
-        <h4 class="ui horizontal divider header">
+    <div class="ui segment">
+        <h4 class="ui header">
+            <i class="bar chart icon"></i>
             Description
         </h4>
         <table class="ui very compact definition table">
@@ -31,7 +33,10 @@
             </tr>
         </tbody>
         </table>
-        <h4 class="ui horizontal divider header">
+    </div>
+    <div class="ui segment">
+        <h4 class="ui header">
+            <i class="database icon"></i>
             Last Logs
         </h4>
         <table class="ui very compact single line table">
@@ -48,8 +53,8 @@
             {% endif %}
         </tbody>
         </table>
-        <div class="ui horizontal divider">
-        </div>
+    </div>
+    <div class="ui segment">
         <a class="ui {{ host.get_status_display }} basic button" href="{% url 'monitor:index' %}">Return</a>
     </div>
 {% endblock %}
