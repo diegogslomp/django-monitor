@@ -8,8 +8,7 @@
  * http://opensource.org/licenses/MIT
  *
  */
- /*@import url('https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic&subset=latin');
- */
+@import url('./fonts/lato.css');
 /*!
  * # Semantic UI 2.2.10 - Reset
  * http://github.com/semantic-org/semantic-ui/
