@@ -17,11 +17,11 @@ class Host(models.Model):
     DANGER = 4
 
     STATUS_CHOICES = (
-        (DEFAULT, 'default'),
-        (SUCCESS, 'success'),
-        (INFO, 'info'),
+        (DEFAULT, 'secondary'),
+        (SUCCESS, 'positive'),
+        (INFO, 'primary'),
         (WARNING, 'warning'),
-        (DANGER, 'danger'),
+        (DANGER, 'negative'),
     )
 
     status = models.IntegerField(choices=STATUS_CHOICES, default=DEFAULT)

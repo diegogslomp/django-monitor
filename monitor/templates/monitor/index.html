@@ -5,7 +5,7 @@
 
 {% block content %}
     {% if host_list %}
-    <table class="table table-hover table-condensed">
+    <table class="ui very compact selectable single line table">
         <thead>
             <tr>
                 <th>Address</th>
@@ -18,11 +18,11 @@
         <tbody>
             {% for host in host_list %}
                 <tr class="{{ host.get_status_display }}">
-                    <td><a class="text-{{ host.get_status_display }} text-nowrap" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.ipv4 }}</strong></a></td>
-                    <td><a class="text-{{ host.get_status_display }} text-nowrap" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.description|upper }}</strong></a></td>
-                    <td><a class="text-{{ host.get_status_display }} text-nowrap" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.status_info }}</strong></a></td>
-                    <td><a align="center" class="text-{{ host.get_status_display }} text-nowrap" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.last_status_change|date:"d/m/y - H:i" }}</strong></a></td>
-                    <td><a align="center" class="text-{{ host.get_status_display }} text-nowrap" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.last_check|date:"H:i" }}</strong></a></td>
+                    <td class="selectable"><a href="{% url 'monitor:detail' host.id %}"><strong>{{ host.ipv4 }}</strong></a></td>
+                    <td class="selectable"><a href="{% url 'monitor:detail' host.id %}"><strong>{{ host.description|upper }}</strong></a></td>
+                    <td class="selectable"><a href="{% url 'monitor:detail' host.id %}"><strong>{{ host.status_info }}</strong></a></td>
+                    <td class="selectable"><a align="center" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.last_status_change|date:"d/m/y - H:i" }}</strong></a></td>
+                    <td class="selectable"><a align="center" href="{% url 'monitor:detail' host.id %}"><strong>{{ host.last_check|date:"H:i" }}</strong></a></td>
                 </tr>
                 {% endfor %}
             </tbody>

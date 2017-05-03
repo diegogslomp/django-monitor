@@ -10,14 +10,10 @@ Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to m
 
 .. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/host_list_example.png
     :alt: Monitor Index Page
-    :width: 730
-    :height: 290
     :align: center
 
 .. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/host_log_example.png
-    :alt: Monitor Index Page
-    :width: 730
-    :height: 290
+    :alt: Monitor Detail Page
     :align: center
       
 How-To

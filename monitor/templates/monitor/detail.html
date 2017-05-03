@@ -3,36 +3,53 @@
 {% block title %} Detailed Host {% endblock %}
 
 {% block content %}
-        <div class="panel panel-{{ host.get_status_display }}">
-            <div class="panel-heading">{{ host.description }}</div>
-            <div class="panel-body">
-                <p>
-                    Name: {{ host.name }}<br>
-                    Address: {{ host.ipv4 }}<br>
-                    Status Info: {{ host.status_info }}<br>
-                    Last status change: {{ host.last_status_change|date:"d/m/y - H:i" }}<br>
-                    Last check: {{ host.last_check|date:"d/m/y - H:i" }}<br>
-                </p>
-                <p>
-                    Last Logs:
-                </p>
-                    <table class="table table-hover table-condensed">
-                    <tbody>
-                        {% if host.log_set.count > 0 %}
-                            {% for log in host.log_set.all|dictsortreversed:"status_change" %}
-                                <tr class="{{ log.get_status_display }}">
-                                    <td class="text-{{ log.get_status_display }}">{{ log.status_info }}</td>
-                                    <td class="text-{{ log.get_status_display }}">{{ log.status_change }}</td>
-                                </tr>
-                            {% endfor %}
-                        {% else %}
-                        <tr><span class="text-muted">No log registered yet</span></tr>
-                        {% endif %}
-                    </tbody>
-                    </table>
-            </div>
-            <div class="panel-footer">
-                <a class="text-{{ host.get_status_display }} btn btn-{{ host.get_status_display }}" href="{% url 'monitor:index' %}">Return</a>
-            </div>
+<div class="ui {{ host.get_status_display }} message">
+        <h4 class="ui horizontal divider header">
+            Description
+        </h4>
+        <table class="ui very compact definition table">
+        <tbody>
+            <tr>
+                <td class="two wide column">Name</td>
+                <td>{{ host.name }}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>{{ host.ipv4 }}</td>
+            </tr>
+            <tr>
+                <td>Status Info</td>
+                <td>{{ host.status_info }}</td>
+            </tr>
+            <tr>
+                <td>Last status change</td>
+                <td>{{ host.last_status_change|date:"d/m/y - H:i" }}</td>
+            </tr>
+            <tr>
+                <td>Last check</td>
+                <td>{{ host.last_check|date:"d/m/y - H:i" }}</td>
+            </tr>
+        </tbody>
+        </table>
+        <h4 class="ui horizontal divider header">
+            Last Logs
+        </h4>
+        <table class="ui very compact single line table">
+        <tbody>
+            {% if host.log_set.count > 0 %}
+                {% for log in host.log_set.all|dictsortreversed:"status_change" %}
+                    <tr class="{{ log.get_status_display }}">
+                        <td>{{ log.status_info }}</td>
+                        <td>{{ log.status_change }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+            <tr><span>No log registered yet</span></tr>
+            {% endif %}
+        </tbody>
+        </table>
+        <div class="ui horizontal divider">
         </div>
+        <a class="ui {{ host.get_status_display }} basic button" href="{% url 'monitor:index' %}">Return</a>
+    </div>
 {% endblock %}
