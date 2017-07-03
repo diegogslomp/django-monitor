@@ -9,7 +9,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-monitor',
-    version='0.1.8',
+    version='0.1.9',
     packages=['monitor'],
     include_package_data=True,
     license='MIT License',
@@ -24,6 +24,7 @@ setup(
         'Framework :: Django',
         'Framework :: Django:: 1.9',
         'Framework :: Django:: 1.10',
+        'Framework :: Django:: 1.11',
         'Intended Audience :: System Administrators',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3',

@@ -28,7 +28,7 @@ How-To
     
 3. Download and Install app from github::
 
-    pip install https://github.com/diegogslomp/django-monitor/raw/master/dist/django-monitor-0.1.8.tar.gz
+    pip install https://github.com/diegogslomp/django-monitor/raw/master/dist/django-monitor-0.1.9.tar.gz
 
 4. Add "monitor" to project's setting INSTALLED_APPS (/foo_project/foo_project/settings.py)::
 
