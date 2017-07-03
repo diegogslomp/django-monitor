@@ -2,3 +2,4 @@ Django
 ecdsa
 paramiko
 pycrypto
+nltk

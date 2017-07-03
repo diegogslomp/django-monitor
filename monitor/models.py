@@ -32,9 +32,10 @@ class Host(models.Model):
 
 class Log(models.Model):
     host = models.ForeignKey(Host, on_delete=models.CASCADE)
-    status = models.IntegerField(choices=Host.STATUS_CHOICES)
+    status = models.IntegerField(choices=Host.STATUS_CHOICES, default=Host.DEFAULT)
     status_change = models.DateTimeField()
-    status_info = models.CharField(max_length=200, blank=True)
+    status_info = models.CharField(max_length=200, blank=True, null=True)
+
 
     def __str__(self):
         return self.host.name

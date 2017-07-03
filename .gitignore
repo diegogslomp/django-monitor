@@ -13,6 +13,7 @@ __pycache__/
 .ropeproject/
 env/
 monitor/management/commands/populate_db.py
+monitor/management/commands/populatedb_with_jsonview.py
 monitor/management/commands/test.py
 monitor/settings/local.py
 *-journal

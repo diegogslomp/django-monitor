@@ -5,17 +5,15 @@
 
 {% block content %}
     {% if host_list %}
-    <table class="ui very compact selectable single line table">
-        <thead>
-            <tr>
-                <th>Address</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Last Status Change</th>
-                <th>Last Check</th>
-            </tr>
-        </thead>
+    <table class="ui single line very compact selectable table">
         <tbody>
+            <tr>
+                <td><strong>Address</strong></td>
+                <td><strong>Description</strong></td>
+                <td><strong>Status</strong></td>
+                <td><strong>Last Status Change</strong></td>
+                <td><strong>Last Check</strong></td>
+            </tr>
             {% for host in host_list %}
                 <tr class="{{ host.get_status_display }}">
                     <td class="selectable"><a href="{% url 'monitor:detail' host.id %}"><strong>{{ host.ipv4 }}</strong></a></td>
