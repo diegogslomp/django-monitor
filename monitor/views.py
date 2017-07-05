@@ -19,13 +19,21 @@ class DetailView(generic.DetailView):
     template_name = 'monitor/detail.html'
     model = Host
 
-def jsonView(request, model):
+def jsonView(request, model, pk=None):
+
     data = []
-    #Remove plural and capitalize
+    #Remove plural and capitalize model
     st = LancasterStemmer()
     model_name = st.stem(model).capitalize()
 
     if model_name in ('Host', 'Log', 'Port'):
         query_model = apps.get_model('monitor', model_name)
-        data = serializers.serialize('json', query_model.objects.all())
+
+        if pk:
+            query = [query_model.objects.get(pk=pk)]
+        else:
+            query = query_model.objects.all()
+
+        data = serializers.serialize('json', query)
+
     return JsonResponse(data, safe=False)
