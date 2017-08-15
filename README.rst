@@ -8,12 +8,8 @@ Monitor
 
 Monitor is a `Django <https://www.djangoproject.com>`_ app to monitor hosts. Also checks port status for registered ports using telnet connection. Tested on routers/switches Enterasys S8, G3 and A4 series.
 
-.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/host_list_example.png
-    :alt: Monitor Index Page
-    :align: center
-
-.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/host_log_example.png
-    :alt: Monitor Detail Page
+.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/webview.gif
+    :alt: Index and Detail Pages
     :align: center
       
 How-To
