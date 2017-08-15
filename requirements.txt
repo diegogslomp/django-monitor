@@ -1,5 +1,3 @@
-Django
-ecdsa
+django
 paramiko
-pycrypto
 nltk
