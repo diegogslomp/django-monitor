@@ -1,13 +1,9 @@
 build/
+dist/
 /*.egg-info/
 *.pyc
 *.log
 *.swp
-/monitor/migrations/
-/testproject/
-/templates/
-/manage.py
-*.sqlite3
 __pycache__/
 .idea/
 .ropeproject/

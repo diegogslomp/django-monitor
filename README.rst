@@ -6,7 +6,7 @@ Monitor
    :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
    :target: https://gitter.im/diegogslomp/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to monitor hosts through ICMP packets (ping) using `this daemon <https://github.com/diegogslomp/django-monitor/blob/master/monitor/management/commands/monitord.py>`_. If there are registered ports, check status through telnet, tested on Enterasys S8, G3 and A4 series.
+Monitor is a `Django <https://www.djangoproject.com>`_ app to monitor hosts. Also checks port status for registered ports using telnet connection. Tested on routers/switches Enterasys S8, G3 and A4 series.
 
 .. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/host_list_example.png
     :alt: Monitor Index Page
@@ -19,48 +19,35 @@ Monitor is a simple Web-based `Django <https://www.djangoproject.com>`_ app to m
 How-To
 -------
 
-1. It's recommended to use `pyenv <https://github.com/yyuu/pyenv>`_ for Python install. See this `script <https://github.com/diegogslomp/django-monitor/blob/master/docs/centos_install.sh>`_ to install it on Centos or `this <https://github.com/diegogslomp/django-monitor/blob/master/docs/ubuntu_install.sh>`_ to install it on Ubuntu/Debian. 
- 
+1. Create a django project and clone the app::
 
-2. Create a project::
+    pip install django paramiko
+    django-admin.py startproject mysite
+    cd mysite
+    git clone https://github.com/diegogslomp/monitor.git  
 
-    django-admin.py startproject foo_project
-    
-3. Download and Install app from github::
-
-    pip install https://github.com/diegogslomp/django-monitor/raw/master/dist/django-monitor-0.1.10.tar.gz
-
-4. Add "monitor" to project's setting INSTALLED_APPS (/foo_project/foo_project/settings.py)::
+2. Add "monitor" to INSTALLED_APPS in mysite/settings.py::
 
     INSTALLED_APPS = (
         ...
         'monitor',
     )
     
-5. Include the monitor URLconf in your project urls.py::
+3. Include the monitor URLconf in mysite/urls.py::
 
     url(r'^monitor/', include('monitor.urls', namespace='monitor')),
 
-6. Migrate hosts models to project's database::
+4. Migrate, create superuser and start the server::
 
     python manage.py migrate
-
-7. Create superuser if a new project was created::
-
     python manage.py createsuperuser
-    
-8. Start the development server::
-   
     python manage.py runserver 0.0.0.0:8000
     
-9. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
+5. Visit http://localhost:8000/admin/ to create hosts and services (need the Admin app enabled).
 
-10. Run the monitor daemon to start monitoring::
+6. Run the monitor daemon to start monitoring::
 
       python manage.py monitord
 
-11. Visit http://localhost:8000/monitor/
-
-12. Enjoy!
-
+7. Visit http://localhost:8000/monitor/
 
