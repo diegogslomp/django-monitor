@@ -13,3 +13,6 @@ monitor/management/commands/populatedb_with_jsonview.py
 monitor/management/commands/test.py
 monitor/settings/local.py
 *-journal
+db.sqlite3
+django_monitor/
+manage.py

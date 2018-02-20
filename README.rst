@@ -33,9 +33,12 @@ How-To
     
 #. Include the monitor URLconf in mysite/urls.py::
 
-    from django.conf.urls import url, include
+    from django.urls import include, path
 
-    url(r'^monitor/', include('monitor.urls', namespace='monitor')),
+    urlpatterns = [
+        ...
+        path('monitor/', include('monitor.urls', namespace='monitor')),
+    ]
 
 #. Migrate, create superuser and start the server::
 
