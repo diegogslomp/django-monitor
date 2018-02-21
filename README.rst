@@ -82,4 +82,4 @@ Logging
           },
       }
 
-#. Run `python manage.py monitord` from command-line
+#. Run ``python manage.py monitord`` from command-line
