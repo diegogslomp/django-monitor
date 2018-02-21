@@ -57,7 +57,7 @@ How-To
 Logging
 -------
 
-#. Add to ./mysite/setting.py::
+#. Add to mysite/settings.py::
 
       ...
       LOGGING = {
