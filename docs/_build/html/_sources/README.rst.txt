@@ -1,6 +1,6 @@
-==============
-Django Monitor
-==============
+=======
+Monitor
+=======
 
 .. image:: https://badges.gitter.im/Join%20Chat.svg
    :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
@@ -8,7 +8,7 @@ Django Monitor
 
 Monitor is a `Django <https://www.djangoproject.com>`_ app to monitor hosts. Also checks port status for registered ports using telnet connection. Tested on routers/switches Enterasys S8, G3 and A4 series.
 
-.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/webview.gif
+.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/images/webview.gif
     :alt: Index and Detail Pages
     :align: center
 
