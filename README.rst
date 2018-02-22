@@ -87,3 +87,4 @@ Logging
              :target: https://gitter.im/diegogslomp/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
 .. |readthedocs| image:: https://readthedocs.org/projects/django-monitor-d/badge/?version=latest
+                  :target: http://django-monitor-d.readthedocs.io/en/latest/?badge=latest
