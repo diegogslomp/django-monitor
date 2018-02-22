@@ -17,7 +17,7 @@ How-To
 
 #. Create a django project and clone the app::
 
-    pip install django paramiko
+    pip install django
     django-admin.py startproject mysite
     cd mysite
     git clone https://github.com/diegogslomp/monitor.git
