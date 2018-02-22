@@ -2,9 +2,7 @@
 Django Monitor
 ==============
 
-.. image:: https://badges.gitter.im/Join%20Chat.svg
-   :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
-   :target: https://gitter.im/diegogslomp/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+|gitter| |readthedocs|
 
 Monitor is a `Django <https://www.djangoproject.com>`_ app to monitor hosts. Also checks port status for registered ports using telnet connection. Tested on routers/switches Enterasys S8, G3 and A4 series.
 
@@ -83,3 +81,9 @@ Logging
       }
 
 #. Run ``python manage.py monitord`` from command-line
+
+.. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
+             :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
+             :target: https://gitter.im/diegogslomp/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+
+.. |readthedocs| image:: https://readthedocs.org/projects/django-monitor-d/badge/?version=latest
