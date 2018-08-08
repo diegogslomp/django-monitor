@@ -15,72 +15,22 @@ How-To
 
 #. Create a django project and clone the app::
 
-    pip install django
-    django-admin.py startproject mysite
-    cd mysite
-    git clone https://github.com/diegogslomp/monitor.git
-
-#. Add "monitor" to INSTALLED_APPS in mysite/settings.py::
-
-    ALLOWED_HOSTS = ['*']
-
-    INSTALLED_APPS = (
-        ...
-        'monitor',
-    )
-
-#. Include the monitor URLconf in mysite/urls.py::
-
-    from django.urls import include, path
-
-    urlpatterns = [
-        ...
-        path('monitor/', include('monitor.urls')),
-    ]
-
-#. Migrate, create superuser and start the server::
-
+    git clone --recurse-submodules https://github.com/diegogslomp/django-monitor.git
+    cd django-monitor
+    pipenv install
+    pipenv shell
     python manage.py migrate
     python manage.py createsuperuser
     python manage.py runserver 0.0.0.0:8000
 
-#. Visit http://localhost:8000/admin to create hosts and services (need the Admin app enabled).
+#. Visit http://localhost:8000/admin to create hosts and services.
 
 #. Start another terminal and run the monitor daemon to start monitoring::
 
-      python manage.py monitord
+    pipenv shell
+    python manage.py monitord
 
-#. Visit http://localhost:8000/monitor
-
-Logging
--------
-
-#. Add to mysite/settings.py::
-
-      ...
-      LOGGING = {
-          "version": 1,
-          "disable_existing_loggers": False,
-          "formatters":{
-              "console": {
-                  "format": "%(asctime)s %(name)-12s %(levelname)-8s %(message)s",
-              }
-          },
-          "handlers": {
-              "console": {
-                  "class": "logging.StreamHandler",
-                  "formatter": "console",
-              },
-          },
-          "loggers": {
-              "": {
-                  "handlers": ["console"],
-                  "level": "DEBUG",
-              },
-          },
-      }
-
-#. Run ``python manage.py monitord`` from command-line
+#. Visit http://localhost:8000
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
              :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
