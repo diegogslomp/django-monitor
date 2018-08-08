@@ -4,7 +4,7 @@ Django Monitor
 
 |gitter| |readthedocs|
 
-Monitor is a `Django <https://www.djangoproject.com>`_ app to monitor hosts. Also checks port status for registered ports using telnet connection. Tested on routers/switches Enterasys S8, G3 and A4 series.
+A `Django <https://www.djangoproject.com>`_ application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.
 
 .. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/webview.gif
     :alt: Index and Detail Pages
@@ -13,7 +13,7 @@ Monitor is a `Django <https://www.djangoproject.com>`_ app to monitor hosts. Als
 How-To
 ------
 
-#. Create a django project and clone the app::
+#. Clone, install using pipenv, migrate, create admin and run it::
 
     git clone --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
@@ -25,7 +25,7 @@ How-To
 
 #. Visit http://localhost:8000/admin to create hosts and services.
 
-#. Start another terminal and run the monitor daemon to start monitoring::
+#. Start another terminal and run the host monitor daemon::
 
     pipenv shell
     python manage.py monitord
