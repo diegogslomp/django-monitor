@@ -13,22 +13,20 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 How-To
 ------
 
-#. Clone, install using pipenv, migrate, create admin and run it::
+#. Clone, install using `pipenv <https://pipenv.readthedocs.io>`_, migrate, create admin and run it::
 
     git clone --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
-    pipenv install
-    pipenv shell
-    python manage.py migrate
-    python manage.py createsuperuser
-    python manage.py runserver 0.0.0.0:8000
+    pipenv install --three
+    pipenv run python manage.py migrate
+    pipenv run python manage.py createsuperuser
+    pipenv run python manage.py runserver 0.0.0.0:8000
 
 #. Visit http://localhost:8000/admin to create hosts and services.
 
 #. Start another terminal and run the host monitor daemon::
 
-    pipenv shell
-    python manage.py monitord
+    pipenv run python manage.py monitord
 
 #. Visit http://localhost:8000
 
