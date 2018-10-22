@@ -13,7 +13,7 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 How-To
 ------
 
-#. Clone, install using `pipenv <https://pipenv.readthedocs.io>`_, migrate, create admin and run it::
+#. With `git <https://git-scm.com>`_ and `pipenv <https://pipenv.readthedocs.io>`_ installed, run::
 
     git clone --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
