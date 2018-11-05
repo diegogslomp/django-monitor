@@ -15,7 +15,7 @@ How-To
 
 #. With `git <https://git-scm.com>`_ and `pipenv <https://pipenv.readthedocs.io>`_ installed, run::
 
-    git clone --recurse-submodules https://github.com/diegogslomp/django-monitor.git
+    git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
     pipenv install --three
     pipenv run python manage.py migrate
