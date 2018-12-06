@@ -13,17 +13,16 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Docker
 ------
 
-#. Simplest way using `docker <https://docker.com>`_::
+#. Recommended way using `docker <https://docker.com>`_::
 
-    docker run --name django-monitor -d -p 8000:8000 diegogslomp/django-monitor
-
-#. Create superuser::
-
+    docker run --name django-monitor -e DJANGO_SECRET_KEY='edit_this_for_secure_reasons' -d -p 8000:8000 diegogslomp/django-monitor
     docker exec -it django-monitor envs/monitor/bin/python manage.py createsuperuser
 
-#. Visit http://localhost:8000/admin to create hosts and services.
+#. Visit http://localhost:8000/admin to create hosts and ports
 
 #. Visit http://localhost:8000
+
+#. Environment vars listed on env.example file
 
 Local
 -----
@@ -38,7 +37,7 @@ Local
     pipenv run python manage.py runserver 0.0.0.0:8000
 
 
-#. Visit http://localhost:8000/admin to create hosts and services.
+#. Visit http://localhost:8000/admin to create hosts and ports
 
 #. Start another terminal and run the host monitor daemon::
 
