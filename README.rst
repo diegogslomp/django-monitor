@@ -10,10 +10,25 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
     :alt: Index and Detail Pages
     :align: center
 
-How-To
+Docker
 ------
 
-#. With `git <https://git-scm.com>`_ and `pipenv <https://pipenv.readthedocs.io>`_ installed, run::
+#. Simplest way using `docker <https://docker.com>`_::
+
+    docker run --name django-monitor -d -p 8000:8000 diegogslomp/django-monitor
+
+#. Create superuser::
+
+    docker exec -it django-monitor envs/monitor/bin/python manage.py createsuperuser
+
+#. Visit http://localhost:8000/admin to create hosts and services.
+
+#. Visit http://localhost:8000
+
+Local
+-----
+
+#. Install with `git <https://git-scm.com>`_ and `pipenv <https://pipenv.readthedocs.io>`_::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
@@ -21,6 +36,7 @@ How-To
     pipenv run python manage.py migrate
     pipenv run python manage.py createsuperuser
     pipenv run python manage.py runserver 0.0.0.0:8000
+
 
 #. Visit http://localhost:8000/admin to create hosts and services.
 
