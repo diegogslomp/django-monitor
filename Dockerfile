@@ -12,6 +12,7 @@ RUN pip install virtualenv \
     && virtualenv ../envs/monitor -p python3 \
     && ../envs/monitor/bin/pip install -r requirements.txt \
     && ../envs/monitor/bin/python manage.py migrate \
+    && ../envs/monitor/bin/python manage.py collectstatic \
     && virtualenv ../envs/supervisor -p python2 \
     && ../envs/supervisor/bin/pip install supervisor
 
