@@ -4,6 +4,11 @@ WORKDIR /usr/local/src/app
 
 COPY . . 
 
+ENV DJANGO_LOG_LEVEL='DEBUG'
+ENV TELNET_USER='admin'
+ENV TELNET_PASS='secret'
+ENV DJANGO_SECRET_KEY='super_secret_key'
+
 RUN pip install virtualenv \
     && mkdir -p envs \
     && virtualenv envs/monitor -p python3 \
@@ -16,3 +21,4 @@ RUN pip install virtualenv \
 CMD ["envs/supervisor/bin/supervisord", "-c", "supervisord.conf"]
 
 EXPOSE 8000
+
