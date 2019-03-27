@@ -11,4 +11,4 @@ services:
       TELNET_PASS: secret
       DJANGO_SECRET_KEY: super_secret_key
     ports:
-      - "9000:8000"
+      - "8000:8000"

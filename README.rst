@@ -13,7 +13,7 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Docker
 ------
 
-#. Install `Docker <https://docker.com>`_ and `docker compose <https://docs.docker.com/compose>`_::
+#. Install `docker <https://docker.com>`_ and `docker-compose <https://docs.docker.com/compose>`_::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
