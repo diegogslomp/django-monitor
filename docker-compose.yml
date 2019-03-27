@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  app:
+    build: .
+    image: monitor
+    container_name: monitor
+    environment:
+      DJANGO_LOG_LEVEL: DEBUG
+      TELNET_USER: admin
+      TELNET_PASS: secret
+      DJANGO_SECRET_KEY: super_secret_key
+    ports:
+      - "9000:8000"

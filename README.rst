@@ -13,35 +13,34 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Docker
 ------
 
-#. Recommended way using `docker <https://docker.com>`_::
+#. Install `Docker <https://docker.com>`_ and `docker compose <https://docs.docker.com/compose>`_::
 
-    docker run --name django-monitor -e DJANGO_SECRET_KEY='edit_this_for_secure_reasons' -d -p 8000:8000 diegogslomp/django-monitor
-    docker exec -it django-monitor envs/monitor/bin/python manage.py createsuperuser
+    git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
+    cd django-monitor
+    docker-compose up
+    docker exec -it monitor python manage.py createsuperuser
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
 #. Visit http://localhost:8000
 
-#. Environment vars listed on env.example file
-
 Local
 -----
 
-#. Install with `git <https://git-scm.com>`_ and `pipenv <https://pipenv.readthedocs.io>`_::
+#. Python3 linux system::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
-    pipenv install --three
-    pipenv run python manage.py migrate
-    pipenv run python manage.py createsuperuser
-    pipenv run python manage.py runserver 0.0.0.0:8000
+    python manage.py migrate
+    python manage.py createsuperuser
+    python manage.py runserver 0.0.0.0:8000
 
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
 #. Start another terminal and run the host monitor daemon::
 
-    pipenv run python manage.py monitord
+    python manage.py monitord
 
 #. Visit http://localhost:8000
 
