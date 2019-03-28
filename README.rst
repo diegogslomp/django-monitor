@@ -13,12 +13,12 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Docker
 ------
 
-#. Install `docker <https://docker.com>`_ and `docker-compose <https://docs.docker.com/compose>`_::
+#. Install nginx + gunicorn + postgres stack with `docker <https://docker.com>`_ and `docker-compose <https://docs.docker.com/compose>`_::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
     docker-compose up
-    docker exec -it monitor python manage.py createsuperuser
+    docker-compose run migration python manage.py createsuperuser
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
@@ -31,6 +31,7 @@ Local
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
+    pip install -r requirements.txt
     python manage.py migrate
     python manage.py createsuperuser
     python manage.py runserver 0.0.0.0:8000
