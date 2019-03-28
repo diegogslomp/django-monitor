@@ -17,8 +17,14 @@ Docker
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
+    cp env.example .env
     docker-compose up
-    docker-compose run migration python manage.py createsuperuser
+
+#. Migrate models, create administrator, collect static files::
+
+    docker-compose run app python manage.py migrate
+    docker-compose run app python manage.py createsuperuser
+    docker-compose run app python manage.py collectstatic
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 

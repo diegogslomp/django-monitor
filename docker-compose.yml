@@ -5,54 +5,26 @@ services:
     build: .
     image: monitor
     restart: always
-    environment:
-      DJANGO_LOG_LEVEL: DEBUG
-      TELNET_USER: admin
-      TELNET_PASS: secret
-      DJANGO_SECRET_KEY: super_secret_key
+    env_file: .env
     command: gunicorn -b 0.0.0.0:8000 main.wsgi
+    volumes:
+      - web_static:/usr/src/app/static
     networks:
       - frontend
       - backend
     depends_on:
-      - migration
+      - db
 
   monitord:
     build: .
     image: monitor
     restart: always
-    environment:
-      DJANGO_LOG_LEVEL: DEBUG
-      TELNET_USER: admin
-      TELNET_PASS: secret
-      DJANGO_SECRET_KEY: super_secret_key
+    env_file: .env
     command: python manage.py monitord
     networks:
       - backend
     depends_on:
       - app
-
-  collectstatic:
-    build: .
-    image: monitor
-    restart: on-failure
-    environment:
-      DJANGO_SECRET_KEY: super_secret_key
-    command: python manage.py collectstatic --no-input
-    volumes:
-      - web_static:/usr/src/app/static
-
-  migration:
-    build: .
-    image: monitor
-    restart: on-failure
-    environment:
-      DJANGO_SECRET_KEY: super_secret_key
-    command: python manage.py migrate
-    networks:
-      - backend
-    depends_on:
-      - db
 
   db:
     image: postgres
@@ -74,7 +46,6 @@ services:
       - "8000:80"
     depends_on:
       - app
-      - collectstatic
 
 networks:
   frontend:
