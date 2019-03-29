@@ -10,8 +10,8 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
     :alt: Index and Detail Pages
     :align: center
 
-Docker
-------
+Install
+-------
 
 #. Install nginx + gunicorn + postgres stack with `docker <https://docker.com>`_ and `docker-compose <https://docs.docker.com/compose>`_::
 
@@ -27,27 +27,6 @@ Docker
     docker-compose run app python manage.py collectstatic
 
 #. Visit http://localhost:8000/admin to create hosts and ports
-
-#. Visit http://localhost:8000
-
-Local
------
-
-#. Python3 linux system::
-
-    git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
-    cd django-monitor
-    pip install -r requirements.txt
-    python manage.py migrate
-    python manage.py createsuperuser
-    python manage.py runserver 0.0.0.0:8000
-
-
-#. Visit http://localhost:8000/admin to create hosts and ports
-
-#. Start another terminal and run the host monitor daemon::
-
-    python manage.py monitord
 
 #. Visit http://localhost:8000
 
