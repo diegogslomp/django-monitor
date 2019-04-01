@@ -26,6 +26,7 @@ Install
     cd django-monitor
     cp env.example .env
 
+    docker build -t monitor:latest .
     docker stack deploy monitor -c stack.yml
     docker exec -it monitor_app.1.xxxx python manage.py migrate
     docker exec -it monitor_app.1,xxxx python manage.py createsuperuser

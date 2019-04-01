@@ -3,7 +3,7 @@ version: '3.1'
 services:
   app:
     build: .
-    image: django-monitor
+    image: monitor
     restart: always
     env_file: .env
     command: gunicorn -b 0.0.0.0:8000 main.wsgi
@@ -17,7 +17,7 @@ services:
 
   monitord:
     build: .
-    image: django-monitor
+    image: monitor
     restart: always
     env_file: .env
     command: python manage.py monitord
