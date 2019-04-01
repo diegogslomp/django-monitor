@@ -4,7 +4,7 @@ Django Monitor
 
 |gitter| |readthedocs|
 
-A `Django <https://www.djangoproject.com>`_ application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.
+A Django application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.
 
 .. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/webview.gif
     :alt: Index and Detail Pages
@@ -13,24 +13,23 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Install
 -------
 
-#. From `dockerhub <https://hub.docker.com/>`_::
+#. From dockerhub::
 
     docker run -d --name monitor -p 8000:8000 diegogslomp/django-monitor
     docker exec -it monitor python manage.py migrate
     docker exec -it monitor python manage.py createsuperuser
     docker exec -d monitor python manage.py monitord
 
-#. Local nginx + gunicorn + postgres stack::
+#. Or local nginx + gunicorn + postgres stack::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
     cp env.example .env
 
     docker stack deploy monitor -c stack.yml
-    docker exec -it monitor_app python manage.py migrate
-    docker exec -it monitor_app python manage.py createsuperuser
-    docker exec -it monitor_app python manage.py collectstatic
-    docker exec -d monitor_app python manage.py monitord
+    docker exec -it monitor_app.1.xxxx python manage.py migrate
+    docker exec -it monitor_app.1,xxxx python manage.py createsuperuser
+    docker exec -it monitor_app.1.xxxx python manage.py collectstatic
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
