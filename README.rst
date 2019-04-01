@@ -13,6 +13,13 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Install
 -------
 
+#. From dockerhub::
+
+  docker run -d --name monitor -p 8000:8000 diegogslomp/django-monitor
+  docker exec -it monitor python manage.py migrate
+  docker exec -it monitor python manage.py createsuperuser
+  docker exec -d monitor python manage.py monitord
+
 #. Install nginx + gunicorn + postgres stack with `docker <https://docker.com>`_ and `docker-compose <https://docs.docker.com/compose>`_::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
@@ -36,3 +43,4 @@ Install
 
 .. |readthedocs| image:: https://readthedocs.org/projects/django-monitor-d/badge/?version=latest
                   :target: http://django-monitor-d.readthedocs.io/en/latest/?badge=latest
+
