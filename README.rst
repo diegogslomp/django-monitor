@@ -13,25 +13,24 @@ A `Django <https://www.djangoproject.com>`_ application to ping devices and chec
 Install
 -------
 
-#. From dockerhub::
+#. From `dockerhub <https://hub.docker.com/>`_::
 
-  docker run -d --name monitor -p 8000:8000 diegogslomp/django-monitor
-  docker exec -it monitor python manage.py migrate
-  docker exec -it monitor python manage.py createsuperuser
-  docker exec -d monitor python manage.py monitord
+    docker run -d --name monitor -p 8000:8000 diegogslomp/django-monitor
+    docker exec -it monitor python manage.py migrate
+    docker exec -it monitor python manage.py createsuperuser
+    docker exec -d monitor python manage.py monitord
 
-#. Install nginx + gunicorn + postgres stack with `docker <https://docker.com>`_ and `docker-compose <https://docs.docker.com/compose>`_::
+#. Local nginx + gunicorn + postgres stack::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
     cp env.example .env
-    docker-compose up
 
-#. Migrate models, create administrator, collect static files::
-
-    docker-compose run app python manage.py migrate
-    docker-compose run app python manage.py createsuperuser
-    docker-compose run app python manage.py collectstatic
+    docker stack deploy monitor -c stack.yml
+    docker exec -it monitor_app python manage.py migrate
+    docker exec -it monitor_app python manage.py createsuperuser
+    docker exec -it monitor_app python manage.py collectstatic
+    docker exec -d monitor_app python manage.py monitord
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
