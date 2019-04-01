@@ -20,7 +20,7 @@ Install
     docker exec -it monitor python manage.py createsuperuser
     docker exec -d monitor python manage.py monitord
 
-#. Or downloaded `git <https://git-scm.com>`_ repo with nginx + gunicorn + postgres stack::
+#. Or downloaded `git <https://git-scm.com>`_ repo with nginx + gunicorn + postgres docker stack::
 
     git clone --recurse-submodules --depth=1 https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
