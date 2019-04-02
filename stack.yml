@@ -6,7 +6,8 @@ services:
     image: monitor
     restart: always
     env_file: .env
-    command: gunicorn -b 0.0.0.0:8000 main.wsgi
+    entrypoint: gunicorn
+    command: -b 0.0.0.0:8000 main.wsgi
     volumes:
       - web_static:/usr/src/app/static
     networks:
@@ -20,7 +21,7 @@ services:
     image: monitor
     restart: always
     env_file: .env
-    command: python manage.py monitord
+    command: monitord
     networks:
       - backend
     depends_on:

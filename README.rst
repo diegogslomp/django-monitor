@@ -16,9 +16,9 @@ Install
 #. Development version::
 
     docker run -d --name monitor -p 8000:8000 diegogslomp/django-monitor
-    docker exec -it monitor python manage.py migrate
-    docker exec -it monitor python manage.py createsuperuser
-    docker exec -d monitor python manage.py monitord
+    docker exec -it monitor migrate
+    docker exec -it monitor createsuperuser
+    docker exec -d monitor monitord
 
 #. Or downloaded git repo with nginx + gunicorn + postgres stack::
 
@@ -28,9 +28,9 @@ Install
 
     docker build -t monitor:latest .
     docker stack deploy monitor -c stack.yml
-    docker exec -it monitor_app.1.xxxx python manage.py migrate
-    docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
-    docker exec -it monitor_app.1.xxxx python manage.py collectstatic
+    docker exec -it monitor_app.1.xxxx migrate
+    docker exec -it monitor_app.1.xxxx createsuperuser
+    docker exec -it monitor_app.1.xxxx collectstatic
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
