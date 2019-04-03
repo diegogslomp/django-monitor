@@ -1,14 +1,17 @@
 # Git
 .git
 .gitignore
+.gitmodules
 
 # CI
 .codeclimate.yml
 .travis.yml
 
 # Docker
+Dockerfile
 docker-compose.yml
 .docker
+stack.yml
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -67,6 +70,7 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+docs/
 
 # PyBuilder
 target/
@@ -92,3 +96,8 @@ Pipfile.lock
 */*/*.swp
 */*/*/*.swp
 
+# vscode
+.vscode/
+
+# nginx
+nginx.conf
