@@ -1,14 +1,16 @@
 [[source]]
+name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
-name = "pypi"
+
+[dev-packages]
+sphinx = "*"
+sphinx-rtd-theme = "*"
 
 [packages]
 gunicorn = "*"
-"psycopg2-binary" = "*"
+psycopg2-binary = "*"
 Django = "*"
-
-[dev-packages]
 
 [requires]
 python_version = "3"
