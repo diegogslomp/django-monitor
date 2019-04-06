@@ -5,11 +5,8 @@ python:
   - '3.6'
   - '3.7'
 env:
-  - DB_ENGINE=django.db.backends.postgresql_psycopg2
-  - DB_NAME=travis_ci_test
-  - DB_USER=postgres
-  - DB_HOST=localhost
-
+  - DB_ENGINE=django.db.backends.postgresql_psycopg2 DB_NAME=travis_ci_test DB_USER=postgres DB_HOST=localhost
+  
 install:
   - pip install -r requirements.txt
 script:
