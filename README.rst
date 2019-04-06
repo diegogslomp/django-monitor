@@ -2,7 +2,7 @@
 Django Monitor
 ==============
 
-|gitter| |readthedocs|
+|travis| |readthedocs| |gitter|
 
 A Django application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.
 
@@ -38,4 +38,7 @@ Install
 
 .. |readthedocs| image:: https://readthedocs.org/projects/django-monitor-d/badge/?version=latest
                   :target: http://django-monitor-d.readthedocs.io/en/latest/?badge=latest
+                  
+.. |travis| image:: https://travis-ci.org/diegogslomp/django-monitor.svg?branch=master
+             :target: https://travis-ci.org/diegogslomp/django-monitor                  
 
