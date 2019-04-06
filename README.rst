@@ -26,7 +26,7 @@ Install
     docker stack deploy monitor -c django-monitor-stack.yml
     docker exec -it monitor_app.1.xxxx python manage.py migrate
     docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
-    docker exec -it monitor_app.1.xxxx python managr.py collectstatic
+    docker exec -it monitor_app.1.xxxx python manage.py collectstatic
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 
