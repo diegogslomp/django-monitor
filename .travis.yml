@@ -3,7 +3,7 @@ python:
   - '3.4'
   - '3.5'
   - '3.6'
-  - '3.7'
+ 
 env:
   - DB_ENGINE=django.db.backends.postgresql_psycopg2 DB_NAME=travis_ci_test DB_USER=postgres DB_HOST=localhost
   
