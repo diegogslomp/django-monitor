@@ -1,8 +1,5 @@
 language: python
 python:
-  - '2.6'
-  - '2.7'
-  - '3.3'
   - '3.4'
   - '3.5'
   - '3.6'
@@ -10,6 +7,8 @@ python:
 env:
   - DB_ENGINE=django.db.backends.postgresql_psycopg2
   - DB_NAME=travis_ci_test
+  - DB_USER=postgres
+  - DB_HOST=localhost
 
 install:
   - pip install -r requirements.txt
