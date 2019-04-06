@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Django Monitor  documentation</title>
+  <title>Django Monitor &mdash; Django Monitor  documentation</title>
   
 
   
@@ -34,8 +34,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Django Monitor" href="readme.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -79,14 +78,14 @@
               
             
             
-              <p class="caption"><span class="caption-text">Readme</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="readme.html">Django Monitor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install">Install</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Django Monitor</a><ul>
+<li><a class="reference internal" href="#install">Install</a></li>
 </ul>
 </li>
 </ul>
-
+</div>
             
           
         </div>
@@ -130,7 +129,7 @@
     
       <li><a href="#">Docs</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Django Monitor</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,14 +148,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Readme</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="readme.html">Django Monitor</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="readme.html#install">Install</a></li>
-</ul>
+  <div class="section" id="django-monitor">
+<h1>Django Monitor<a class="headerlink" href="#django-monitor" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://gitter.im/diegogslomp/django-monitor?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Join the chat at https://gitter.im/diegogslomp/django-monitor" src="https://badges.gitter.im/Join%20Chat.svg" /></a> <a class="reference external" href="http://django-monitor-d.readthedocs.io/en/latest/?badge=latest"><img alt="readthedocs" src="https://readthedocs.org/projects/django-monitor-d/badge/?version=latest" /></a></p>
+<p>A Django application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.</p>
+<img alt="Index and Detail Pages" class="align-center" src="https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/webview.gif" />
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Development version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">name</span> <span class="n">monitor</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8000</span><span class="p">:</span><span class="mi">8000</span> <span class="n">diegogslomp</span><span class="o">/</span><span class="n">django</span><span class="o">-</span><span class="n">monitor</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">d</span> <span class="n">monitor</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">monitord</span>
+</pre></div>
+</div>
 </li>
-</ul>
+<li><p>Or nginx + gunicorn + postgres stack:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">fjI10</span> <span class="o">-</span><span class="n">o</span> <span class="n">django</span><span class="o">-</span><span class="n">monitor</span><span class="o">-</span><span class="n">stack</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">docker</span> <span class="n">stack</span> <span class="n">deploy</span> <span class="n">monitor</span> <span class="o">-</span><span class="n">c</span> <span class="n">django</span><span class="o">-</span><span class="n">monitor</span><span class="o">-</span><span class="n">stack</span><span class="o">.</span><span class="n">yml</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">managr</span><span class="o">.</span><span class="n">py</span> <span class="n">collectstatic</span>
+</pre></div>
+</div>
+</li>
+<li><p>Visit <a class="reference external" href="http://localhost:8000/admin">http://localhost:8000/admin</a> to create hosts and ports</p></li>
+<li><p>Visit <a class="reference external" href="http://localhost:8000">http://localhost:8000</a></p></li>
+</ol>
+</div>
 </div>
 
 
@@ -164,13 +184,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="readme.html" class="btn btn-neutral float-right" title="Django Monitor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>

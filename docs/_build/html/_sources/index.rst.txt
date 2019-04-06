@@ -1,4 +1,1 @@
-.. toctree::
-   :caption: Readme
-
-   readme
+.. include:: ../README.rst
