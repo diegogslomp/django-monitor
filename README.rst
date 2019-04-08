@@ -19,7 +19,7 @@ Install
 
 #. Development version::
 
-    git clone https://github.com/diegogslomp/django-monitor
+    git clone --recurse-submodules https://github.com/diegogslomp/django-monitor
     cd django-monitor
     docker-compose up
     docker-compose exec app python manage.py collectstatic
