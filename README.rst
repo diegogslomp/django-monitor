@@ -18,6 +18,7 @@ Install
 -------
 
 #. Development version::
+
     git clone https://github.com/diegogslomp/django-monitor
     cd django-monitor
     docker-compose up
