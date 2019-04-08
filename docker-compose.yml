@@ -4,6 +4,77 @@ services:
   app:
     build: .
     image: diegogslomp/django-monitor
-    command: python manage.py runserver 0.0.0.0:8000
+    restart: always
+    environment:
+      ## Secret Key must be changed in production
+      DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
+      DJANGO_LOG_LEVEL: DEBUG
+      DJANGO_DEBUG: "True"
+      DB_PASSWORD: postgres
+      # LANGUAGE_CODE: en-us
+      # TZ: UTC
+      ## Only used if there are ports registered
+      # TELNET_USER: admin
+      # TELNET_PASS: secret
+    command: gunicorn -b 0.0.0.0:8000 main.wsgi
+    volumes:
+      - web_static:/usr/src/app/static
     ports:
-      - 8000:8000
+      - 8000
+    networks:
+      - frontend
+      - backend
+    depends_on:
+      - db
+
+  monitord:
+    build: .
+    image: diegogslomp/django-monitor
+    restart: always
+    environment:
+      ## Secret Key must be changed in production
+      DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
+      DJANGO_LOG_LEVEL: DEBUG
+      DJANGO_DEBUG: "True"
+      DB_PASSWORD: postgres
+      # LANGUAGE_CODE: en-us
+      # TZ: UTC
+      ## Only used if there are ports registered
+      # TELNET_USER: admin
+      # TELNET_PASS: secret
+    command: python manage.py monitord
+    networks:
+      - backend
+    depends_on:
+      - app
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - backend
+
+  web:
+    image: nginx
+    restart: always
+    volumes:
+      - web_static:/usr/src/app/static
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - frontend
+    ports:
+      - '9000:80'
+    depends_on:
+      - app
+
+networks:
+  frontend:
+  backend:
+
+volumes:
+  postgres_data:
+  web_static:

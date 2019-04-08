@@ -6,27 +6,32 @@ Django Monitor
 
 A Django application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.
 
-.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/webview.gif
-    :alt: Index and Detail Pages
+.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlist.png
+    :alt: Host List Page
+    :align: center
+
+.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlog.png
+    :alt: Host Log Page
     :align: center
 
 Install
 -------
 
 #. Development version::
+    git clone https://github.com/diegogslomp/django-monitor
+    cd django-monitor
+    docker-compose up
+    docker-compose exec app python manage.py collectstatic
+    docker-compose exec app python manage.py migrate
+    docker-compose exec app python manage.py createsuperuser
 
-    docker run -d --name monitor -p 8000:8000 diegogslomp/django-monitor
-    docker exec -it monitor python manage.py migrate
-    docker exec -it monitor python manage.py createsuperuser
-    docker exec -d monitor python manage.py monitord
-
-#. Or nginx + gunicorn + postgres stack::
+#. Or production nginx + gunicorn + postgres stack::
 
     curl -L https://git.io/fjI10 -o django-monitor-stack.yml
-    docker stack deploy monitor -c django-monitor-stack.yml
+    docker stack deploy monitor -e SECRET-KEY 'secret_key' -e DB_PASSWORD 'postgres' -c django-monitor-stack.yml
+    docker exec -it monitor_app.1.xxxx python manage.py collectstatic
     docker exec -it monitor_app.1.xxxx python manage.py migrate
     docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
-    docker exec -it monitor_app.1.xxxx python manage.py collectstatic
 
 #. Visit http://localhost:8000/admin to create hosts and ports
 

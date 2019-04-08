@@ -150,9 +150,10 @@
             
   <div class="section" id="django-monitor">
 <h1>Django Monitor<a class="headerlink" href="#django-monitor" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://gitter.im/diegogslomp/django-monitor?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Join the chat at https://gitter.im/diegogslomp/django-monitor" src="https://badges.gitter.im/Join%20Chat.svg" /></a> <a class="reference external" href="http://django-monitor-d.readthedocs.io/en/latest/?badge=latest"><img alt="readthedocs" src="https://readthedocs.org/projects/django-monitor-d/badge/?version=latest" /></a></p>
+<p><a class="reference external" href="https://travis-ci.org/diegogslomp/django-monitor"><img alt="travis" src="https://travis-ci.org/diegogslomp/django-monitor.svg?branch=master" /></a> <a class="reference external" href="http://django-monitor-d.readthedocs.io/en/latest/?badge=latest"><img alt="readthedocs" src="https://readthedocs.org/projects/django-monitor-d/badge/?version=latest" /></a> <a class="reference external" href="https://gitter.im/diegogslomp/django-monitor?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"><img alt="Join the chat at https://gitter.im/diegogslomp/django-monitor" src="https://badges.gitter.im/Join%20Chat.svg" /></a></p>
 <p>A Django application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.</p>
-<img alt="Index and Detail Pages" class="align-center" src="https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/webview.gif" />
+<img alt="Host List Page" class="align-center" src="https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlist.png" />
+<img alt="Host Log Page" class="align-center" src="https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlog.png" />
 <div class="section" id="install">
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -169,7 +170,7 @@
 <span class="n">docker</span> <span class="n">stack</span> <span class="n">deploy</span> <span class="n">monitor</span> <span class="o">-</span><span class="n">c</span> <span class="n">django</span><span class="o">-</span><span class="n">monitor</span><span class="o">-</span><span class="n">stack</span><span class="o">.</span><span class="n">yml</span>
 <span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
 <span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
-<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">managr</span><span class="o">.</span><span class="n">py</span> <span class="n">collectstatic</span>
+<span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">monitor_app</span><span class="o">.</span><span class="mf">1.</span><span class="n">xxxx</span> <span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">collectstatic</span>
 </pre></div>
 </div>
 </li>
