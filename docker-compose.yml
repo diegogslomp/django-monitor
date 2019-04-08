@@ -3,7 +3,6 @@ version: '3.1'
 services:
   app:
     build: .
-    image: diegogslomp/django-monitor
     restart: always
     environment:
       ## Secret Key must be changed in production
@@ -29,7 +28,6 @@ services:
 
   monitord:
     build: .
-    image: diegogslomp/django-monitor
     restart: always
     environment:
       ## Secret Key must be changed in production
@@ -63,7 +61,7 @@ services:
     restart: always
     volumes:
       - web_static:/usr/src/app/static
-      - .misc/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./misc/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
       - frontend
     ports:
