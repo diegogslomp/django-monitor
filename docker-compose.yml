@@ -5,19 +5,14 @@ services:
     build: .
     restart: always
     environment:
-      ## Secret Key must be changed in production
       DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
       DJANGO_LOG_LEVEL: DEBUG
       DJANGO_DEBUG: "True"
       DB_PASSWORD: postgres
-      # LANGUAGE_CODE: en-us
-      # TZ: UTC
-      ## Only used if there are ports registered
-      # TELNET_USER: admin
-      # TELNET_PASS: secret
     command: gunicorn -b 0.0.0.0:8000 main.wsgi
     volumes:
       - web_static:/usr/src/app/static
+      - ./misc/init.sh:/usr/src/app/init.sh
     ports:
       - 8000
     networks:
@@ -30,16 +25,10 @@ services:
     build: .
     restart: always
     environment:
-      ## Secret Key must be changed in production
       DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
       DJANGO_LOG_LEVEL: DEBUG
       DJANGO_DEBUG: "True"
       DB_PASSWORD: postgres
-      # LANGUAGE_CODE: en-us
-      # TZ: UTC
-      ## Only used if there are ports registered
-      # TELNET_USER: admin
-      # TELNET_PASS: secret
     command: python manage.py monitord
     networks:
       - backend

@@ -30,7 +30,8 @@ Install
 #. Or production nginx + gunicorn + postgres stack::
 
     curl -L https://git.io/fjtgw -o stack.yml
-    # Edit DJANGO_SECRET_KEY, DB_PASSWORD and POSTGRES_PASSWORD
+    curl -L https://git.io/fjtgw -o .env
+    # Change .env vars
     docker stack deploy monitor -c stack.yml
     docker exec -it monitor_app.1.xxxx python manage.py collectstatic
     docker exec -it monitor_app.1.xxxx python manage.py migrate

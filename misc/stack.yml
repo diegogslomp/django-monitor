@@ -3,10 +3,7 @@ version: '3.1'
 services:
   app:
     image: diegogslomp/django-monitor
-    environment:
-      ## Secret Key must be changed in production
-      DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
-      DB_PASSWORD: postgres
+    env_file: .env
     command: gunicorn -b 0.0.0.0:8000 main.wsgi
     volumes:
       - web_static:/usr/src/app/static
@@ -20,10 +17,7 @@ services:
 
   monitord:
     image: diegogslomp/django-monitor
-    environment:
-      ## Secret Key must be changed in production
-      DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
-      DB_PASSWORD: postgres
+    env_file: .env
     command: python manage.py monitord
     networks:
       - backend
@@ -32,8 +26,9 @@ services:
 
   db:
     image: postgres
+    env_file: .env
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     networks:
