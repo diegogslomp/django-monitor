@@ -1,4 +1,4 @@
-==============
+=============
 Django Monitor
 ==============
 
@@ -30,7 +30,8 @@ Install
 #. Or production nginx + gunicorn + postgres stack::
 
     curl -L https://git.io/fjI10 -o stack.yml
-    docker stack deploy monitor -c django-monitor-stack.yml
+    # Edit DJANGO_SECRET_KEY, DB_PASSWORD and POSTGRES_PASSWORD
+    docker stack deploy monitor -c stack.yml
     docker exec -it monitor_app.1.xxxx python manage.py collectstatic
     docker exec -it monitor_app.1.xxxx python manage.py migrate
     docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
