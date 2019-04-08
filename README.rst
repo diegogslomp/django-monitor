@@ -24,12 +24,13 @@ Install
     docker-compose up
     docker-compose exec app python manage.py collectstatic
     docker-compose exec app python manage.py migrate
+    docker-compose exec app python manage.py loaddata initial_data
     docker-compose exec app python manage.py createsuperuser
 
 #. Or production nginx + gunicorn + postgres stack::
 
-    curl -L https://git.io/fjI10 -o django-monitor-stack.yml
-    docker stack deploy monitor -e SECRET-KEY 'secret_key' -e DB_PASSWORD 'postgres' -c django-monitor-stack.yml
+    curl -L https://git.io/fjI10 -o stack.yml
+    docker stack deploy monitor -c django-monitor-stack.yml
     docker exec -it monitor_app.1.xxxx python manage.py collectstatic
     docker exec -it monitor_app.1.xxxx python manage.py migrate
     docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
