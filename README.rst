@@ -22,10 +22,7 @@ Install
     git clone --recurse-submodules https://github.com/diegogslomp/django-monitor
     cd django-monitor
     docker-compose up
-    docker-compose exec app python manage.py collectstatic
-    docker-compose exec app python manage.py migrate
-    docker-compose exec app python manage.py loaddata initial_data
-    docker-compose exec app python manage.py createsuperuser
+    docker-compose run app ./init.sh
 
 #. Or production nginx + gunicorn + postgres stack::
 
@@ -37,7 +34,7 @@ Install
     docker exec -it monitor_app.1.xxxx python manage.py migrate
     docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
 
-#. Visit http://localhost:8000/admin to create hosts and ports
+#. Visit http://localhost:8000/admin to create hosts and ports (admin:admin for dev version)
 
 #. Visit http://localhost:8000
 
