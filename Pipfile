@@ -4,13 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-sphinx = "*"
 sphinx-rtd-theme = "*"
+Sphinx = "*"
 
 [packages]
 gunicorn = "*"
 psycopg2-binary = "*"
 Django = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3"
