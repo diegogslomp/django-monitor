@@ -2,16 +2,12 @@
 Django Monitor
 ==============
 
-|travis| |readthedocs| |gitter|
+|travis| |readthedocs| |gitter| |heroku|
 
 A Django application to ping devices and check port status from routers/switches through telnet connection. Tested on Enterasys S8, G3, A4 series.
 
 .. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlist.png
     :alt: Host List Page
-    :align: center
-
-.. image:: https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlog.png
-    :alt: Host Log Page
     :align: center
 
 Install
@@ -48,3 +44,5 @@ Install
 .. |travis| image:: https://travis-ci.org/diegogslomp/django-monitor.svg?branch=master
              :target: https://travis-ci.org/diegogslomp/django-monitor                  
 
+.. |heroku| image:: https://heroku-badge.herokuapp.com/?app=heroku-badge&style=flat&svg=1
+             :target: https://django-monitor.herokuapp.com
