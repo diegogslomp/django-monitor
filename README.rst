@@ -13,7 +13,17 @@ A Django application to ping devices and check port status from routers/switches
 Install
 -------
 
-#. Development version::
+#. Nginx + Gunicorn + Postgres + Redis stack::
+
+    curl -L https://git.io/fjsuy -o stack.yml
+    curl -L https://git.io/fjsuS -o .env
+    # Change .env vars
+    docker stack deploy monitor -c stack.yml
+    docker exec -it monitor_app.1.xxxx python manage.py collectstatic
+    docker exec -it monitor_app.1.xxxx python manage.py migrate
+    docker exec -it monitor_app.1.xxxx python manage.py createsuperuser
+
+#. Or development version::
 
     git clone --recurse-submodules https://github.com/diegogslomp/django-monitor
     cd django-monitor
