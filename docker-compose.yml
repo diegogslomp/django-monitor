@@ -3,21 +3,14 @@ version: '3.1'
 services:
   app:
     build: .
-    image: diegogslomp/django-monitor:dev
     restart: always
-    environment:
-      PYTHONDONTWRITEBYTECODE: 1
-      PYTHONUNBUFFERED: 1
-      DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
-      DJANGO_LOG_LEVEL: DEBUG
-      DJANGO_DEBUG: "True"
-      DB_PASSWORD: postgres
+    image: diegogslomp/django-monitor
+    env_file: .env
     command: gunicorn -b 0.0.0.0:8000 main.wsgi
     volumes:
-      - web_static:/usr/src/app/static
-      - ./misc/init.sh:/usr/src/app/init.sh
+      - web_static:/usr/src/app/staticfiles
     ports:
-      - 8000
+      - '8000'
     networks:
       - frontend
       - backend
@@ -25,15 +18,10 @@ services:
       - db
 
   monitord:
-    image: diegogslomp/django-monitor:dev
+    build: .
     restart: always
-    environment:
-      PYTHONDONTWRITEBYTECODE: 1
-      PYTHONUNBUFFERED: 1
-      DJANGO_SECRET_KEY: '283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb'
-      DJANGO_LOG_LEVEL: DEBUG
-      DJANGO_DEBUG: "True"
-      DB_PASSWORD: postgres
+    image: diegogslomp/django-monitor
+    env_file: .env
     command: python manage.py monitord
     networks:
       - backend
@@ -41,27 +29,35 @@ services:
       - app
 
   db:
-    image: postgres
     restart: always
+    image: postgres
+    env_file: .env
     environment:
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_PASSWORD: ${DB_PASS}
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - backend
 
   web:
-    image: nginx
     restart: always
+    build:
+      context: ./nginx
+    image: diegogslomp/nginx-proxy
     volumes:
       - web_static:/usr/src/app/static
-      - ./misc/nginx.conf:/etc/nginx/conf.d/default.conf
     networks:
       - frontend
     ports:
       - '8000:80'
     depends_on:
       - app
+
+  redis:
+    restart: always
+    image: redis:latest
+    networks:
+      - backend
 
 networks:
   frontend:

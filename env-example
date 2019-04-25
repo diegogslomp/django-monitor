@@ -1,0 +1,26 @@
+# Python
+PYTHONDONTWRITEBYTECODE=1
+PYTHONUNBUFFERED=1
+
+# Secret Key must be changed in production
+DJANGO_SECRET_KEY=283822994187305985740598263403493847rfdfbsldfiudfhgldsfzb
+
+# Debug
+DJANGO_LOG_LEVEL=DEBUG
+DJANGO_DEBUG=True
+ALLOWED_HOSTS=*
+
+# Django Database config
+DB_NAME=postgres
+DB_USER=postgres
+DB_PASS=postgres
+DB_HOST=db
+DB_PORT=5432
+
+# Language and Timezone
+LANGUAGE_CODE=en-us
+TZ=UTC
+
+# Only used if there are ports registered
+TELNET_USER=admin
+TELNET_PASS=secret

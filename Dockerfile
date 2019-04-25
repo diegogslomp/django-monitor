@@ -10,3 +10,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY main main
 COPY manage.py manage.py
 COPY monitor monitor
+COPY init.sh init.sh

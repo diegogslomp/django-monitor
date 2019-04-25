@@ -6,6 +6,8 @@ verify_ssl = true
 [dev-packages]
 sphinx-rtd-theme = "*"
 Sphinx = "*"
+pylint = "*"
+"autopep8" = "*"
 
 [packages]
 gunicorn = "*"
