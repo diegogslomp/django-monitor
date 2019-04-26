@@ -11,3 +11,7 @@ COPY main main
 COPY manage.py manage.py
 COPY monitor monitor
 COPY init.sh init.sh
+
+CMD gunicorn -b 0.0.0.0:8000 main.wsgi
+
+EXPOSE 8000

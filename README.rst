@@ -13,7 +13,13 @@ A Django application to ping devices and check port status from routers/switches
 Install
 -------
 
-#. Development version::
+#. Docker container::
+
+    docker run --rm -d -p 8000:8000 --name monitor diegogslomp/django-monitor:latest
+    docker exec -it monitor ./init.sh
+    docker exec -d monitor python manage.py monitord
+
+#. Or dev stack version::
 
     git clone --recurse-submodules https://github.com/diegogslomp/django-monitor
     cd django-monitor
@@ -22,7 +28,7 @@ Install
     docker-compose up
     docker-compose run app ./init.sh
 
-#. Visit http://localhost:8000/admin to create hosts and ports (user/pass: admin)
+#. Visit http://localhost:8000/admin to create hosts
 
 #. Visit http://localhost:8000
 

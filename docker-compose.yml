@@ -6,11 +6,8 @@ services:
     restart: always
     image: diegogslomp/django-monitor
     env_file: .env
-    command: gunicorn -b 0.0.0.0:8000 main.wsgi
     volumes:
       - web_static:/usr/src/app/staticfiles
-    ports:
-      - '8000'
     networks:
       - frontend
       - backend
@@ -49,7 +46,7 @@ services:
     networks:
       - frontend
     ports:
-      - '8000:80'
+      - "8000:80"
     depends_on:
       - app
 
