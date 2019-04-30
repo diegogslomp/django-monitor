@@ -15,7 +15,7 @@ Install
 
 #. Docker container::
 
-    docker run --rm -d -p 8000:8000 --name monitor diegogslomp/django-monitor:latest
+    docker run -d -p 8000:8000 --name monitor diegogslomp/django-monitor:latest
     docker exec -it monitor ./init.sh
     docker exec -d monitor python manage.py monitord
 
