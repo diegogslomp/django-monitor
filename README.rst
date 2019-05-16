@@ -19,15 +19,6 @@ Install
     docker exec -it monitor ./init.sh
     docker exec -d monitor python manage.py monitord
 
-#. Or dev stack version::
-
-    git clone --recurse-submodules https://github.com/diegogslomp/django-monitor
-    cd django-monitor
-    cp env-example .env
-    # Change .env vars
-    docker-compose up
-    docker-compose run app ./init.sh
-
 #. Visit http://localhost:8000/admin to create hosts
 
 #. Visit http://localhost:8000
