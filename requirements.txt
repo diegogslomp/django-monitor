@@ -1,6 +1,9 @@
 django
-django-heroku
+# TODO: only in dev
+# django-heroku
 gunicorn
 psycopg2-binary
+python-dotenv
 django-redis
 redis
+whitenoise

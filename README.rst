@@ -17,6 +17,8 @@ Install
 
     git clone --depth=1 -j8 --recurse-submodules git://github.com/diegogslomp/django-monitor
     cd django-monitor
+    mv env-example .env
+    # Edit .env file variables
     docker build -t monitor:latest .
     docker run -d -p 8000:8000 --name monitor monitor:latest
     docker exec -it monitor ./init.sh

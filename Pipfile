@@ -14,6 +14,8 @@ django-heroku = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 Django = "*"
+python-dotenv = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3"

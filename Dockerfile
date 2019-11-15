@@ -10,6 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY main main
 COPY manage.py manage.py
 COPY monitor monitor
+COPY .env .env
 COPY init.sh init.sh
 
 CMD gunicorn -b 0.0.0.0:8000 main.wsgi
