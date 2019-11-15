@@ -10,8 +10,6 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-Install
--------
 
 #. Clone this repo::
 
