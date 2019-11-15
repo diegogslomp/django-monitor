@@ -10,18 +10,19 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-Install
--------
-
-#. Docker container::
+#. Install git and docker then::
 
     git clone --depth=1 -j8 --recurse-submodules git://github.com/diegogslomp/django-monitor
     cd django-monitor
-    mv env-example .env
     # Edit .env file variables
+    mv env-example .env
+    # Build docker image
     docker build -t monitor:latest .
+    # Run gunicorn server
     docker run -d -p 8000:8000 --name monitor monitor:latest
+    # Collect static files, migrate and create superuser
     docker exec -it monitor ./init.sh
+    # Run monitord agent
     docker exec -d monitor python manage.py monitord
 
 #. Visit http://localhost:8000/admin to create hosts
