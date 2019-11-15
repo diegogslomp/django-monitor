@@ -15,7 +15,10 @@ Install
 
 #. Docker container::
 
-    docker run -d -p 8000:8000 --name monitor diegogslomp/django-monitor:latest
+    git clone --depth=1 -j8 --recurse-submodules git://github.com/diegogslomp/django-monitor
+    cd django-monitor
+    docker build -t monitor:latest .
+    docker run -d -p 8000:8000 --name monitor monitor:latest
     docker exec -it monitor ./init.sh
     docker exec -d monitor python manage.py monitord
 

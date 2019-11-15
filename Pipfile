@@ -8,12 +8,12 @@ sphinx-rtd-theme = "*"
 Sphinx = "*"
 pylint = "*"
 "autopep8" = "*"
+django-heroku = "*"
 
 [packages]
 gunicorn = "*"
 psycopg2-binary = "*"
 Django = "*"
-django-heroku = "*"
 
 [requires]
 python_version = "3"
