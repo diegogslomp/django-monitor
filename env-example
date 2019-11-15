@@ -21,6 +21,6 @@ ALLOWED_HOSTS=*
 LANGUAGE_CODE=en-us
 TZ=America/Sao_Paulo
 
-# Only used if there are ports registered
+# Only used if there are registered ports
 # TELNET_USER=admin
 # TELNET_PASS=secret
