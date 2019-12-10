@@ -4,6 +4,7 @@ django
 gunicorn
 psycopg2-binary
 python-dotenv
-django-redis
-redis
+# TODO: add cache
+# django-redis
+# redis
 whitenoise
