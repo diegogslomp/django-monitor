@@ -85,6 +85,7 @@ target/
 *.pyc
 __pycache__/
 local_settings.py
+static/
 
 # Local DB
 db.sqlite3
