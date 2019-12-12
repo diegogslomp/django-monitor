@@ -13,7 +13,7 @@ A Django application to ping devices and check port status from routers/switches
 Prerequisites
 -------------
 
-    docker_ and docker-compose_ if building the stack
+    Docker_ and docker-compose_ if building the stack
 
 Install
 -------
@@ -53,7 +53,7 @@ Install
 
 #. Visit http://localhost:8000
 
-.. _docker: https://www.docker.com
+.. _Docker: https://www.docker.com
 
 .. _docker-compose: https://docs.docker.com/compose/install
 
