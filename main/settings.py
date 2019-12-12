@@ -1,5 +1,3 @@
-# TODO: heroku only in dev
-# import django_heroku
 import os
 
 # Load environment variables from .env file
@@ -20,7 +18,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.getenv('DJANGO_DEBUG', 'False'))
 
-ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '')]
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '*')]
 
 
 # Application definition
@@ -90,21 +88,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
-# Redis Cache
-# TODO: Add only if redis is installed
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://redis:6379/0",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
-# Redis Session Cache
-# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-# SESSION_CACHE_ALIAS = "default"
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -178,4 +161,5 @@ LOGGING = {
 
 # Configure Django App for Heroku.
 # TODO: heroku only in dev
+# import django_heroku
 # django_heroku.settings(locals())

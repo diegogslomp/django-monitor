@@ -10,6 +10,13 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
+Prerequisites
+-------------
+
+    docker_ and docker-compose_ for stack
+
+Install
+-------
 
 #. Clone this repo::
 
@@ -20,25 +27,34 @@ A Django application to ping devices and check port status from routers/switches
 
     mv env-example .env
 
-#. Build docker image::
+#. With docker-compose installed, run a nginx + django + postgres stack::
 
+    # Build stack services
+    docker-compose up --build
+
+    # Open another terminal and collect static files, migrate and create superuser
+    docker-compose run app ./init.sh
+
+#. Or build a single container with django + sqlite::
+
+    # Build image
     docker build -t monitor:latest .
 
-#. Run gunicorn server::
-
+    # Run gunicorn server
     docker run -d -p 8000:8000 --name monitor monitor:latest
 
-#. Collect static files, migrate and create superuser::
-
+    # Collect static files, migrate and create superuser
     docker exec -it monitor ./init.sh
 
-#. Run monitord agent::
-
+    # Run monitord agent
     docker exec -d monitor python manage.py monitord
 
 #. Visit http://localhost:8000/admin to create hosts
 
 #. Visit http://localhost:8000
+
+.. _docker: https://www.docker.com
+.. _docker-compose: https://docs.docker.com/compose/install
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
              :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor

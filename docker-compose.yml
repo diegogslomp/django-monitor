@@ -4,10 +4,10 @@ services:
   app:
     build: .
     restart: always
-    image: diegogslomp/django-monitor
+    image: monitor
     env_file: .env
     volumes:
-      - web_static:/usr/src/app/staticfiles
+      - web_static:/usr/src/app/static
     networks:
       - frontend
       - backend
@@ -17,7 +17,7 @@ services:
   monitord:
     build: .
     restart: always
-    image: diegogslomp/django-monitor
+    image: monitor
     env_file: .env
     command: python manage.py monitord
     networks:
@@ -31,6 +31,8 @@ services:
     env_file: .env
     environment:
       POSTGRES_PASSWORD: ${DB_PASS}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
@@ -40,7 +42,7 @@ services:
     restart: always
     build:
       context: ./nginx
-    image: diegogslomp/nginx-proxy
+    image: proxy
     volumes:
       - web_static:/usr/src/app/static
     networks:
@@ -49,12 +51,6 @@ services:
       - "8000:80"
     depends_on:
       - app
-
-  redis:
-    restart: always
-    image: redis:latest
-    networks:
-      - backend
 
 networks:
   frontend:

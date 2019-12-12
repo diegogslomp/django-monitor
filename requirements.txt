@@ -1,10 +1,5 @@
 django
-# TODO: only in dev
-# django-heroku
 gunicorn
 psycopg2-binary
 python-dotenv
-# TODO: add cache
-# django-redis
-# redis
 whitenoise
