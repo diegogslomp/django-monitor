@@ -30,9 +30,9 @@ Install
 #. Run a nginx + django + postgres stack::
 
     # Build stack services
-    docker-compose up --build
+    docker-compose up -d --build
 
-    # Open another terminal and collect static files, migrate and create superuser
+    # Collect static files, migrate and create superuser
     docker-compose run app ./init.sh
 
 #. Or build a single container with django + sqlite::
