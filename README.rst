@@ -13,7 +13,7 @@ A Django application to ping devices and check port status from routers/switches
 Prerequisites
 -------------
 
-    docker_ and docker-compose_ for stack
+    docker_ and docker-compose_ if building the stack
 
 Install
 -------
@@ -27,7 +27,7 @@ Install
 
     mv env-example .env
 
-#. With docker-compose installed, run a nginx + django + postgres stack::
+#. Run a nginx + django + postgres stack::
 
     # Build stack services
     docker-compose up --build
@@ -54,6 +54,7 @@ Install
 #. Visit http://localhost:8000
 
 .. _docker: https://www.docker.com
+
 .. _docker-compose: https://docs.docker.com/compose/install
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg

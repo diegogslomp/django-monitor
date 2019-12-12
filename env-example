@@ -1,16 +1,17 @@
 ## Secret Key must be changed in production
 DJANGO_SECRET_KEY=secret_key_must_be_changed_in_production
 
-## Uncomment all vars to use postgres db (used in docker-compose stack)
+## Language and Timezone
+# LANGUAGE_CODE=en-us
+# TZ=America/Sao_Paulo
+
+## For docker-compose postgres stack uncomment all DB vars
+## For single container wit sqlite leave this commentend
 # DB_NAME=postgres
 # DB_USER=postgres
 # DB_PASS=postgres
 # DB_HOST=db
 # DB_PORT=5432
-
-## Language and Timezone
-# LANGUAGE_CODE=en-us
-# TZ=America/Sao_Paulo
 
 ## Debug and allowed hosts
 # DJANGO_LOG_LEVEL=DEBUG
