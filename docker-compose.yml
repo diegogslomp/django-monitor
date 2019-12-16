@@ -5,10 +5,10 @@ services:
     restart: unless-stopped
     image: diegogslomp/django-monitor
     environment:
-      - SECRET_KEY: secret_key
-      - DB_NAME: postgres
-      - DB_USER: postgres
-      - DB_PASS: postgres
+      SECRET_KEY: secret_key
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASS: postgres
     volumes:
       - static:/usr/src/app/static
     networks:
