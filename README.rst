@@ -10,52 +10,23 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-Prerequisites
--------------
+#. Copy nginx + django + postgres stack.yml file::
 
-    Docker_ and docker-compose_ if building the stack
+    curl -o stack.yml https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
+    
+#. Run docker_ stack::
 
-Install
--------
+    docker stack deploy -c stack.yml monitor
 
-#. Clone this repo::
+#. Collect static files, migrate and create superuser::
 
-    git clone --depth=1 -j8 --recurse-submodules git://github.com/diegogslomp/django-monitor
-    cd django-monitor
-
-#. Create and edit .env file variables::
-
-    mv env-example .env
-
-#. Run a nginx + django + postgres stack::
-
-    # Build stack services
-    docker-compose up -d --build
-
-    # Collect static files, migrate and create superuser
-    docker-compose run app ./init.sh
-
-#. Or build a single container with django + sqlite::
-
-    # Build image
-    docker build -t monitor:latest .
-
-    # Run gunicorn server
-    docker run -d -p 8000:8000 --name monitor monitor:latest
-
-    # Collect static files, migrate and create superuser
-    docker exec -it monitor ./init.sh
-
-    # Run monitord agent
-    docker exec -d monitor python manage.py monitord
-
+    docker exec -it monitor_app.1.xxxx ./init.sh
+    
 #. Visit http://localhost:8000/admin to create hosts
 
 #. Visit http://localhost:8000
 
-.. _Docker: https://www.docker.com
-
-.. _docker-compose: https://docs.docker.com/compose/install
+.. _docker: https://www.docker.com
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
              :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
