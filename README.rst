@@ -10,7 +10,7 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-#. Copy nginx + django + postgres stack.yml file::
+#. Copy nginx_ + django_ + postgres_ stack.yml file::
 
     curl -o stack.yml https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
     
@@ -26,7 +26,10 @@ A Django application to ping devices and check port status from routers/switches
 
 #. Visit http://localhost:8000
 
+.. _django: https://www.djangoproject.com
 .. _docker: https://www.docker.com
+.. _nginx: https://www.nginx.com
+.. _postgres: https://www.postgresql.org
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
              :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
