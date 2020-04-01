@@ -1,8 +1,6 @@
 language: python
 python:
-  - '3.4'
-  - '3.5'
-  - '3.6'
+  - '3'
 
 env:
   - DB_NAME=travis_ci_test DB_USER=postgres DB_HOST=localhost DB_PORT='5432' DB_PASSWORD=''
