@@ -1,0 +1,14 @@
+# Env vars for local development.
+# .env file is loaded with pipenv
+SECRET_KEY=secret
+DEBUG=True
+ALLOWED_HOSTS=*
+DB_ENGINE=django.db.backends.sqlite3
+DB_NAME=db.sqlite3
+DB_USER=db
+DB_PASS=db
+DB_HOST=db
+DB_PORT=5432
+LANGUAGE_CODE=en-us
+LOG_LEVEL=DEBUG
+TIME_ZONE=America/Sao_Paulo
