@@ -5,7 +5,21 @@ python:
   - '3.8'
 
 env:
-  - DB_NAME=travis_ci_test DB_USER=postgres DB_HOST=localhost DB_PORT='5432' DB_PASSWORD=''
+  - DB_NAME=travis_ci_test
+  - DB_USER=postgres
+  - DB_HOST=localhost
+  - DB_PORT='5432'
+  - DB_PASSWORD=''
+  - SECRET_KEY=secret
+  - DEBUG=True
+  - ALLOWED_HOSTS=*
+  - DB_ENGINE=django.db.backends.postgresql_psycopg2
+  - DB_PASS=''
+  - DB_HOST=db
+  - DB_PORT=5432
+  - LANGUAGE_CODE=en-us
+  - LOG_LEVEL=DEBUG
+  - TIME_ZONE=America/Sao_Paulo
 
 install:
   - pip install -r requirements.txt
