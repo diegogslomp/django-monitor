@@ -1,0 +1,26 @@
+{% if port_list %}
+<table class="ui single line very compact selectable table">
+    <thead>
+        <tr>
+            <th><strong>Address</strong></th>
+            <th><strong>Hostname</strong></th>
+            <th><strong>Port</strong></th>
+            <th><strong>Counter</strong></th>
+            <th class="center aligned"><strong>Counter Last Change</strong></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for port in port_list %}
+            <tr class="{{ port.get_counter_status_display }}">
+                <td class="selectable"><a href="{% url 'monitor:detail' port.host.id %}"><strong>{{ port.host.ipv4 }}</strong></a></td>
+                <td class="selectable"><a href="{% url 'monitor:detail' port.host.id %}"><strong>{{ port.host.name|upper }}</strong></a></td>
+                <td class="selectable"><a href="{% url 'monitor:detail' port.host.id %}"><strong>{{ port.number }}</strong></a></td>
+                <td class="selectable"><a href="{% url 'monitor:detail' port.host.id %}"><strong>{{ port.error_counter }}</strong></a></td>
+                <td class="selectable center aligned"><a href="{% url 'monitor:detail' port.host.id %}"><strong>{{ port.counter_last_change|date:"d/m/y - H:i" }}</strong></a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>No registered ports.</p>
+{% endif %}

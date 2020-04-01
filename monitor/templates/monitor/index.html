@@ -1,0 +1,20 @@
+{% extends "monitor/base.html" %}
+
+{% block title %} Host List {% endblock %}
+
+{% block content %}
+    <div class="container" id="content"></div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    async function loadData() {
+        const url = "{% url 'monitor:host_list' %}"
+        const data = await fetch(url)
+        const html = await data.text()
+        document.querySelector('#content').innerHTML = html
+    }
+    loadData();
+    setInterval(loadData, 15000);
+</script>
+{% endblock %}
