@@ -20,7 +20,7 @@ services:
       TIME_ZONE: America/Sao_Paulo
 
     volumes:
-      - static:/usr/src/app/static
+      - static:/usr/src/app/staticfiles
     networks:
       - frontend
       - backend
