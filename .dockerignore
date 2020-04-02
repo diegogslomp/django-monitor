@@ -1,0 +1,7 @@
+.dockerignore
+**/.git/
+**/.gitignore
+**/README.rst
+**/README.md
+**/*.pyc
+**/__pycache__

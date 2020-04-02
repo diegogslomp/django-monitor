@@ -4,12 +4,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = os.getenv(
+    'SECRET_KEY', 'on$l%d!=-a=bdl6*1qsnzh6#704_zkfy@fanh=q98+mk6+6%_9')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ['DEBUG'])
+DEBUG = bool(os.getenv('DEBUG', 'False'))
 
-ALLOWED_HOSTS = [os.environ['ALLOWED_HOSTS']]
+ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '*')]
 
 # Application definition
 INSTALLED_APPS = [
@@ -54,12 +55,12 @@ WSGI_APPLICATION = 'main.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ['DB_ENGINE'],
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASS'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT']
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql_psycopg2'),
+        'NAME': os.getenv('DB_NAME', 'postgres'),
+        'USER': os.getenv('DB_USER', 'postgres'),
+        'PASSWORD': os.getenv('DB_PASSWORD', 'postgres'),
+        'HOST': os.getenv('DB_HOST', 'db'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
@@ -78,9 +79,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = os.environ['LANGUAGE_CODE']
+LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'en-us')
 
-TIME_ZONE = os.environ['TIME_ZONE']
+TIME_ZONE = os.getenv('TIME_ZONE', 'America/Sao_Paulo')
 
 USE_I18N = True
 
@@ -109,7 +110,7 @@ LOGGING = {
     'loggers': {
         '': {
             'handlers': ['console'],
-            'level': os.environ['LOG_LEVEL']
+            'level': os.getenv('LOG_LEVEL', 'INFO'),
         },
     },
 }
