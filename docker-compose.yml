@@ -8,6 +8,17 @@ services:
       DB_NAME: postgres
       DB_USER: postgres
       DB_PASSWORD: postgres
+      # All env below added until fix EOF in windows
+      DEBUG: 'True'
+      LOG_LEVEL: DEBUG
+      ALLOWED_HOSTS: '*'
+      DB_ENGINE: django.db.backends.postgresql_psycopg2
+      DB_PASS: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      LANGUAGE_CODE: en-us
+      TIME_ZONE: America/Sao_Paulo
+
     volumes:
       - static:/usr/src/app/static
     networks:
@@ -24,6 +35,16 @@ services:
       DB_NAME: postgres
       DB_USER: postgres
       DB_PASSWORD: postgres
+      # All env below added until fix EOF in windows
+      DEBUG: 'True'
+      LOG_LEVEL: DEBUG
+      ALLOWED_HOSTS: '*'
+      DB_ENGINE: django.db.backends.postgresql_psycopg2
+      DB_PASS: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      LANGUAGE_CODE: en-us
+      TIME_ZONE: America/Sao_Paulo
     networks:
       - backend
     depends_on:
