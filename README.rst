@@ -14,7 +14,7 @@ A Django application to ping devices and check port status from routers/switches
 
     curl -o monitor.yml https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
     
-#. Run docker swarm and start the stack::
+#. Run docker swarm and deploy the stack::
 
     docker swarm init
     docker stack deploy -c monitor.yml monitor
