@@ -1,8 +1,8 @@
 import os
+import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-USE_HEROKU = os.getenv('USE_HEROKU', False)
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', False)
 ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '*')]
@@ -98,6 +98,4 @@ FIXTURE_DIRS = (
 # CSRF_COOKIE_SECURE = False
 # X_FRAME_OPTIONS = 'DENY'
 
-if USE_HEROKU:
-    import django_heroku
-    django_heroku.settings(locals())
+django_heroku.settings(locals())
