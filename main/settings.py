@@ -1,18 +1,12 @@
 import os
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv(
-    'SECRET_KEY', 'on$l%d!=-a=bdl6*1qsnzh6#704_zkfy@fanh=q98+mk6+6%_9')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv('DEBUG', 'False'))
-
+USE_HEROKU = os.getenv('USE_HEROKU', False)
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', False)
 ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '*')]
 
-# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -25,6 +19,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -32,6 +27,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'main.urls'
 
@@ -80,17 +77,12 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = os.getenv('LANGUAGE_CODE', 'en-us')
-
 TIME_ZONE = os.getenv('TIME_ZONE', 'America/Sao_Paulo')
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Initial data
@@ -98,33 +90,14 @@ FIXTURE_DIRS = (
     '/monitor/fixtures/',
 )
 
-# Console logging
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['console'],
-            'level': os.getenv('LOG_LEVEL', 'INFO'),
-        },
-    },
-}
-
-# TODO: Vars to solve check-deploy warning, must be enable in production
+# TODO: check --deploy vars
 # SECURE_CONTENT_TYPE_NOSNIFF = True
 # SECURE_BROWSER_XSS_FILTER = True
 # SECURE_SSL_REDIRECT = False
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
+# SESSION_COOKIE_SECURE = False
+# CSRF_COOKIE_SECURE = False
 # X_FRAME_OPTIONS = 'DENY'
 
-
-# Configure Django App for Heroku.
-# TODO: heroku only in dev
-# import django_heroku
-# django_heroku.settings(locals())
+if USE_HEROKU:
+    import django_heroku
+    django_heroku.settings(locals())
