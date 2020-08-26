@@ -2,13 +2,6 @@ language: python
 python:
   - '3.8'
 
-env:
-  global:
-    - DB_NAME=travis_ci_test
-    - DB_HOST=localhost
-    - DB_PASSWORD=''
-    - SECRET_KEY=5eX4btUvpQUosj
-
 install:
   - pip install -r requirements.txt
 script:
@@ -16,4 +9,4 @@ script:
 services:
   - postgresql
 before_script:
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database ${DB_NAME};' -U postgres
