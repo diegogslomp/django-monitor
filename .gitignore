@@ -96,7 +96,3 @@ db.sqlite3
 # Pip
 Pipfile.lock
 
-# Git
-monitor/.git
-monitor/.gitignore
-monitor/README.rst
