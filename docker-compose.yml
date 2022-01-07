@@ -3,14 +3,12 @@ version: '3.1'
 services:
   app:
     image: diegogslomp/django-monitor
-    build: .
     environment:
       SECRET_KEY: ')=^^v7e2e--*5swl77tij@w(t8z^v7j*^=s1na21#8e_&ymw%4'
       DB_NAME: postgres
       DB_USER: postgres
       DB_PASSWORD: postgres
-    volumes:
-      - static:/usr/src/app/static
+      DEBUG: "True"
     networks:
       - frontend
       - backend
@@ -21,7 +19,6 @@ services:
 
   monitord:
     image: diegogslomp/django-monitor
-    build: .
     command: python manage.py monitord
     environment:
       SECRET_KEY: ')=^^v7e2e--*5swl77tij@w(t8z^v7j*^=s1na21#8e_&ymw%4'
@@ -50,4 +47,3 @@ networks:
 
 volumes:
   db:
-  static:

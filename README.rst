@@ -10,19 +10,23 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-#. Copy django + postgres yml file::
+#. Create mon folder and download docker-compose.yml file::
 
-    curl -o monitor.yml https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
+    mkdir mon && cd mon
+    curl -o https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
     
-#. Run docker swarm and deploy the stack::
+#. Run web/db hosts and show logs (ctrl+c to exit)::
 
-    docker swarm init
-    docker stack deploy -c monitor.yml monitor
+    docker-compose up -d app db && docker-compose logs -f
 
 #. Collect static files, migrate db and create superuser::
 
-    docker exec -it monitor_app.xxxx ./init.sh
-    
+    docker exec app ./init.sh
+
+#. Start monitor daemon and show logs (ctrl+c to exit)::
+
+    docker-compose up -d monitord && docker-compose logs -f
+
 #. Visit http://localhost:8000/admin to create hosts
 
 #. Visit http://localhost:8000
