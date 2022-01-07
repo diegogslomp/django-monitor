@@ -21,7 +21,7 @@ A Django application to ping devices and check port status from routers/switches
 
 #. Collect static files, migrate db and create superuser::
 
-    docker exec app ./init.sh
+    docker-compose exec app ./init.sh
 
 #. Start monitor daemon and show logs (ctrl+c to exit)::
 
