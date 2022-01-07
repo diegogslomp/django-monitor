@@ -10,12 +10,11 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-#. Create mon folder and download docker-compose.yml file::
+#. Download docker-compose.yml file::
 
-    mkdir mon && cd mon
     curl -o https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
     
-#. Run web/db hosts and show logs (ctrl+c to exit)::
+#. Run web/db hosts and show logs (Ctrl+c to exit)::
 
     docker-compose up -d app db && docker-compose logs -f
 
@@ -23,7 +22,7 @@ A Django application to ping devices and check port status from routers/switches
 
     docker-compose exec app ./init.sh
 
-#. Start monitor daemon and show logs (ctrl+c to exit)::
+#. Start monitor daemon and show logs (Ctrl+c to exit)::
 
     docker-compose up -d monitord && docker-compose logs -f
 
