@@ -1,14 +1,9 @@
 import os
-import django_heroku
-import mimetypes
-
-# fix browser css mimetype errors
-mimetypes.add_type("text/css", ".css", True)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG', False)
+SECRET_KEY = os.getenv('SECRET_KEY', ')=^^v7e2e--*5swl77tij@w(t8z^v7j*^=s1na21#8e_&ymw%4')
+DEBUG = os.getenv('DEBUG', True)
 ALLOWED_HOSTS = [os.getenv('ALLOWED_HOSTS', '*')]
 
 INSTALLED_APPS = [
@@ -93,13 +88,3 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 FIXTURE_DIRS = (
     '/monitor/fixtures/',
 )
-
-# TODO: check --deploy vars
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# SECURE_BROWSER_XSS_FILTER = True
-# SECURE_SSL_REDIRECT = False
-# SESSION_COOKIE_SECURE = False
-# CSRF_COOKIE_SECURE = False
-# X_FRAME_OPTIONS = 'DENY'
-
-django_heroku.settings(locals())

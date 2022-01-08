@@ -2,4 +2,3 @@ django
 gunicorn
 psycopg2
 whitenoise
-django-heroku

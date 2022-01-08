@@ -3,15 +3,6 @@ version: '3.1'
 services:
   app:
     image: diegogslomp/django-monitor
-    environment:
-      SECRET_KEY: ')=^^v7e2e--*5swl77tij@w(t8z^v7j*^=s1na21#8e_&ymw%4'
-      DB_NAME: postgres
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-      DEBUG: "True"
-    networks:
-      - frontend
-      - backend
     ports:
       - '8000:8000'
     depends_on:
@@ -20,13 +11,6 @@ services:
   monitord:
     image: diegogslomp/django-monitor
     command: python manage.py monitord
-    environment:
-      SECRET_KEY: ')=^^v7e2e--*5swl77tij@w(t8z^v7j*^=s1na21#8e_&ymw%4'
-      DB_NAME: postgres
-      DB_USER: postgres
-      DB_PASSWORD: postgres
-    networks:
-      - backend
     depends_on:
       - app
 
@@ -38,12 +22,6 @@ services:
       POSTGRES_DB: postgres
     volumes:
       - db:/var/lib/postgresql/data
-    networks:
-      - backend
-
-networks:
-  frontend:
-  backend:
 
 volumes:
   db:

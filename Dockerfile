@@ -10,8 +10,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-COPY main main
-COPY manage.py manage.py
+RUN django-admin startproject main .
+RUN mv main/settings.py main/settings.ORIG.py
+RUN mv main/urls.py main/urls.ORIG.py
+
+COPY main/settings.py main/settings.py
+COPY main/urls.py main/urls.py
+
 COPY monitor monitor
 COPY init.sh init.sh
 
