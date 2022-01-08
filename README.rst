@@ -12,7 +12,8 @@ A Django application to ping devices and check port status from routers/switches
 
 #. Download docker-compose.yml file::
 
-    curl -o https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
+    curl -o docker-compose.yml \
+    https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
     
 #. Run web/db hosts and show logs (Ctrl+c to exit)::
 
