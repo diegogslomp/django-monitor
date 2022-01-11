@@ -14,19 +14,13 @@ A Django application to ping devices and check port status from routers/switches
 
     curl -LO https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
     
-#. Run app/db hosts and show logs (Ctrl+c to exit)::
+#. Run hosts and show logs (Ctrl+c to exit)::
 
-    docker-compose up -d app db && docker-compose logs -f
+    docker-compose up -d && docker-compose logs -f
 
-#. Collect static files, migrate db and create superuser::
+#. Visit http://localhost:8000/admin to create hosts (user:admin pass:admin), for sample data run::
 
-    docker-compose exec app ./init.sh
-
-#. Start monitor daemon and show logs (Ctrl+c to exit)::
-
-    docker-compose up -d monitord && docker-compose logs -f
-
-#. Visit http://localhost:8000/admin to create hosts::
+    docker-compose exec app python manage.py loaddata initial_data
 
 #. Visit http://localhost:8000
 

@@ -10,7 +10,7 @@ services:
 
   monitord:
     image: diegogslomp/django-monitor
-    command: python manage.py monitord
+    command: ./monitord.sh
     depends_on:
       - app
 

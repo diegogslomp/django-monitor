@@ -1,6 +1,6 @@
 FROM python:alpine
 
-RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
+RUN apk add --no-cache postgresql-dev gcc python3-dev musl-dev
 
 WORKDIR /usr/src/app
 
@@ -18,8 +18,9 @@ COPY main/settings.py main/settings.py
 COPY main/urls.py main/urls.py
 
 COPY monitor monitor
-COPY init.sh init.sh
+COPY monitor.sh monitor.sh
+COPY monitord.sh monitord.sh
 
-CMD gunicorn -b 0.0.0.0:8000 main.wsgi
+CMD ./monitor.sh
 
 EXPOSE 8000
