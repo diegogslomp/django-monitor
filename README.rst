@@ -10,19 +10,19 @@ A Django application to ping devices and check port status from routers/switches
     :alt: Host List Page
     :align: center
 
-#. Download docker-compose.yml file::
+#. Run directly from docker image::
 
-    curl -LO https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docker-compose.yml
-    
-#. Run hosts and show logs (Ctrl+c to exit)::
+    docker run -d --restart=always -e SECRET_KEY='supersecret_6009830@!#' -v monitordb:/usr/src/app/db -p 8000:8000 --name monitor diegogslomp/django-monitor
 
-    docker-compose up -d && docker-compose logs -f
+#. Visit http://localhost:8000, visit http://localhost:8000/admin to create hosts (user:admin pass:admin)
 
-#. Visit http://localhost:8000/admin to create hosts (user:admin pass:admin), for sample data run::
+#. For django + postgres stack, clone, build and run::
 
-    docker-compose exec app python manage.py loaddata initial_data
+    git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
+    cd django-monitor
+    docker-compose build
+    docker-compose up -d
 
-#. Visit http://localhost:8000
 
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
              :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor

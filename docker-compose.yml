@@ -1,21 +1,30 @@
 version: '3.1'
 
 services:
-  app:
-    image: diegogslomp/django-monitor
+  mon:
+    build:
+      context: .
+    container_name: mon
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: 'secure_key!@)!@)!@powe2'
+      DB_ENGINE: 'django.db.backends.postgresql_psycopg2'
+      DB_NAME: 'postgres'
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'postgres'
+      DB_HOST: 'mondb'
+      DB_PORT: '5432'
+      DEBUG: 'False'
     ports:
       - '8000:8000'
     depends_on:
-      - db
+      - mondb
 
-  monitord:
-    image: diegogslomp/django-monitor
-    command: ./monitord.sh
-    depends_on:
-      - app
 
-  db:
+  mondb:
     image: postgres
+    restart: unless-stopped
+    container_name: mondb
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres

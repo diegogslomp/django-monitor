@@ -1,8 +1,0 @@
-version: '3.1'
-
-services:
-  app:
-    image: diegogslomp/django-monitor:dev
-
-  monitord:
-    image: diegogslomp/django-monitor:dev

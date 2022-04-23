@@ -1,8 +1,6 @@
 #!/bin/sh
+# Stop if any error
+set -euo pipefail
 
-while true; do
-    python manage.py monitord || true
-    echo "Can't run monitord, waiting 5 seconds..."
-    # wait for 5 seconds before check again
-    sleep 5
-done
+# Start monitor daemon
+python manage.py monitord

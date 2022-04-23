@@ -2,3 +2,4 @@ django
 gunicorn
 psycopg2
 whitenoise
+supervisor

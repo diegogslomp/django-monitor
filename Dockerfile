@@ -20,7 +20,8 @@ COPY main/urls.py main/urls.py
 COPY monitor monitor
 COPY monitor.sh monitor.sh
 COPY monitord.sh monitord.sh
+COPY supervisord.conf supervisord.conf
 
-CMD ./monitor.sh
+CMD supervisord -c supervisord.conf
 
 EXPOSE 8000

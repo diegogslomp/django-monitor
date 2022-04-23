@@ -93,6 +93,3 @@ db.sqlite3
 # Editors
 .vscode/
 
-# Pip
-Pipfile.lock
-
