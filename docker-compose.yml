@@ -7,7 +7,6 @@ services:
     container_name: mon
     restart: unless-stopped
     environment:
-      SECRET_KEY: 'secure_key!@)!@)!@powe2'
       DB_ENGINE: 'django.db.backends.postgresql_psycopg2'
       DB_NAME: 'postgres'
       DB_USER: 'postgres'
@@ -15,6 +14,8 @@ services:
       DB_HOST: 'mondb'
       DB_PORT: '5432'
       DEBUG: 'False'
+      TIMEZONE: 'America/Sao_Paulo'
+      SECRET_KEY: 'secure_key!@)!@)!@powe2'
     ports:
       - '8000:8000'
     depends_on:
