@@ -14,9 +14,16 @@ A Django application to ping devices and check port status from routers/switches
 
     docker run -d --restart=always -e SECRET_KEY='super_secret@6009830@!#' -e TIME_ZONE='America/Sao_Paulo' -v monitordb:/usr/src/app/db -p 8000:8000 --name monitor diegogslomp/django-monitor
 
-#. Visit http://localhost:8000, visit http://localhost:8000/admin to create hosts (user:admin pass:admin)
+#. Add sample hosts::
 
-#. For django + postgres stack, clone, build and run::
+    docker exec monitor python manage.py loaddata initial_data
+
+#. Visit http://localhost:8000
+
+#. visit http://localhost:8000/admin to create hosts (user:admin pass:admin)
+
+
+For postgresql, clone, build and run::
 
     git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor

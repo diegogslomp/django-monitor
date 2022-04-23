@@ -88,3 +88,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 FIXTURE_DIRS = (
     '/monitor/fixtures/',
 )
+
+# 3.2 Autofield warning
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
