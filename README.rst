@@ -20,10 +20,10 @@ A Django application to ping devices and check port status from routers/switches
 
 #. Visit http://localhost:8000
 
-#. visit http://localhost:8000/admin to create hosts (user:admin pass:admin)
+#. Visit http://localhost:8000/admin to create hosts (user:admin pass:admin)
 
 
-For postgresql, clone, build and run::
+For PostgreSQL as db, clone, build and run::
 
     git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
