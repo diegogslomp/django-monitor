@@ -10,7 +10,7 @@ Ping devices and check port status from routers/switches through telnet connecti
     :alt: Host List Page
     :align: center
 
-#. Run directly from docker image::
+#. Run docker image::
 
     docker run -d --restart=always -e SECRET_KEY='o)=4*s#n9y)93eh%68e(@f' -e TIME_ZONE='America/Sao_Paulo' -v monitordb:/usr/src/app/db -p 8000:8000 --name monitor diegogslomp/django-monitor
 
