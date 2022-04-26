@@ -2,6 +2,7 @@ version: '3.1'
 
 services:
   mon:
+    image: monitor:dev
     build:
       context: .
     container_name: mon
