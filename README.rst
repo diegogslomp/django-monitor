@@ -2,7 +2,7 @@
 Django Monitor
 ==============
 
-|license| |travis| |readthedocs| |gitter|
+|license| |travis| |gitter|
 
 Ping devices and check port status from routers/switches through telnet connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 
@@ -34,9 +34,6 @@ For PostgreSQL as db, clone, build and run::
 .. |gitter| image:: https://badges.gitter.im/Join%20Chat.svg
              :alt: Join the chat at https://gitter.im/diegogslomp/django-monitor
              :target: https://gitter.im/diegogslomp/django-monitor?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
-
-.. |readthedocs| image:: https://readthedocs.org/projects/django-monitor-d/badge/?version=latest
-                  :target: http://django-monitor-d.readthedocs.io/en/latest/?badge=latest
                   
 .. |travis| image:: https://travis-ci.org/diegogslomp/django-monitor.svg?branch=master
              :target: https://travis-ci.org/diegogslomp/django-monitor                  
