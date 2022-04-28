@@ -15,6 +15,7 @@ services:
       DB_HOST: 'monitordb'
       DB_PORT: '5432'
       DEBUG: 'False'
+      LOG_LEVEL: 'DEBUG'
       TIME_ZONE: 'America/Sao_Paulo'
       SECRET_KEY: 'secure_key!@)!@)!@powe2'
     ports:
