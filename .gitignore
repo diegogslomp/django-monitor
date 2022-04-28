@@ -93,3 +93,6 @@ db.sqlite3
 # Editors
 .vscode/
 
+# Virtualenv
+Pipfile
+Pipfile.lock
