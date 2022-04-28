@@ -1,6 +1,6 @@
 #!/bin/sh
 # Stop if any error
-set -ueo pipefail
+set -eu
 
 # Migrate db
 mkdir db || true

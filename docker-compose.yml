@@ -1,32 +1,32 @@
 version: '3.1'
 
 services:
-  mon:
+  monitor:
     image: monitor:dev
     build:
       context: .
-    container_name: mon
+    container_name: monitor
     restart: unless-stopped
     environment:
       DB_ENGINE: 'django.db.backends.postgresql_psycopg2'
       DB_NAME: 'postgres'
       DB_USER: 'postgres'
       DB_PASSWORD: 'postgres'
-      DB_HOST: 'mondb'
+      DB_HOST: 'monitordb'
       DB_PORT: '5432'
       DEBUG: 'False'
-      TIMEZONE: 'America/Sao_Paulo'
+      TIME_ZONE: 'America/Sao_Paulo'
       SECRET_KEY: 'secure_key!@)!@)!@powe2'
     ports:
       - '8000:8000'
     depends_on:
-      - mondb
+      - monitordb
 
 
-  mondb:
+  monitordb:
     image: postgres
     restart: unless-stopped
-    container_name: mondb
+    container_name: monitordb
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
