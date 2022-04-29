@@ -1,7 +1,6 @@
 #!/bin/sh
 # Stop if any error
 set -eu
-
 # Migrate db
 mkdir db || true
 python manage.py makemigrations
