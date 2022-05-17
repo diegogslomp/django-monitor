@@ -1,10 +1,10 @@
 FROM python:alpine
 
-RUN apk add --no-cache postgresql-dev gcc python3-dev musl-dev
+RUN apk add --no-cache curl postgresql-dev gcc python3-dev musl-dev
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt . 
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONDONTWRITEBYTECODE=1
