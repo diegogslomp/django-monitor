@@ -22,7 +22,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 4.  Visit <http://localhost:8000/admin> to create hosts (user:admin
     pass:admin)
 
-5.  To send telegram messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
+5.  To send telegram [bot](https://core.telegram.org/bots) messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
     to the docker run command
 
 For PostgreSQL as db, clone, build and run
