@@ -6,8 +6,9 @@ Django Monitor
 
 Ping devices and check port status from routers/switches through telnet
 connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
-
-![Host List Page](https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlist.png)
+<p align="center">
+<img src="https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlist.png" height=220 style="max-height: 440px;"/>
+</p>
 
 1.  Run docker image
 
