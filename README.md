@@ -30,5 +30,5 @@ For PostgreSQL as db, clone, build and run
 
     git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
-    docker-compose build
-    docker-compose up -d
+    docker compose build
+    docker compose up -d
