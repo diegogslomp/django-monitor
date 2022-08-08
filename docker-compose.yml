@@ -17,7 +17,7 @@ services:
       DEBUG: 'False'
       LOG_LEVEL: 'DEBUG'
       TIME_ZONE: 'America/Sao_Paulo'
-      SECRET_KEY: 'secure_key!@)!@)!@powe2'
+      SECRET_KEY: 'change_this_!@)!@)!@powe2'
     ports:
       - '8000:8000'
     depends_on:
