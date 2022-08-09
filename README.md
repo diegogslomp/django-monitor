@@ -12,7 +12,12 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 
 1.  Run docker image:
 
-        docker run -d --restart=always -e SECRET_KEY='o)=4*s#n9y)93eh%68e(@f' -e TIME_ZONE='America/Sao_Paulo' -v monitordb:/usr/src/app/db -p 8000:8000 --name monitor diegogslomp/django-monitor
+        docker run -d --restart=unless-stopped \
+          -e SECRET_KEY="change_this!o)=4*s#n" \
+          -e TIME_ZONE="America/Sao_Paulo" \
+          -v monitordb:/usr/src/app/db \
+          -p 8000:8000 \
+          --name monitor diegogslomp/django-monitor
 
 2.  Add sample hosts:
 
