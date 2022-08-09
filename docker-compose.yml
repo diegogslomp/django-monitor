@@ -1,4 +1,4 @@
-version: '3.1'
+version: "3.1"
 
 services:
   monitor:
@@ -8,32 +8,38 @@ services:
     container_name: monitor
     restart: unless-stopped
     environment:
-      DB_ENGINE: 'django.db.backends.postgresql_psycopg2'
-      DB_NAME: 'postgres'
-      DB_USER: 'postgres'
-      DB_PASSWORD: 'postgres'
-      DB_HOST: 'monitordb'
-      DB_PORT: '5432'
-      DEBUG: 'False'
-      LOG_LEVEL: 'DEBUG'
-      TIME_ZONE: 'America/Sao_Paulo'
-      SECRET_KEY: 'change_this_!@)!@)!@powe2'
+      DB_ENGINE: django.db.backends.postgresql_psycopg2
+      DB_NAME: postgres
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_HOST: monitordb
+      DB_PORT: "5432"
+      DEBUG: "False"
+      LOG_LEVEL: INFO
+      TIME_ZONE: America/Sao_Paulo
+      SECRET_KEY: "change_this!@)!@)!@powe2"
     ports:
-      - '8000:8000'
+      - "8000:8000"
     depends_on:
-      - monitordb
-
+      monitordb:
+        condition: service_healthy
 
   monitordb:
     image: postgres
     restart: unless-stopped
     container_name: monitordb
+    user: postgres
     environment:
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
     volumes:
       - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db:
