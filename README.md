@@ -19,7 +19,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
           -p 8000:8000 \
           --name monitor diegogslomp/django-monitor
 
-2.  Add sample hosts:
+2.  Add sample hosts (optional):
 
         docker exec monitor python manage.py loaddata initial_data
 
@@ -31,7 +31,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 5.  To send telegram [bot](https://core.telegram.org/bots) messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
     to the docker run command
 
-For PostgreSQL as db, clone, build and run:
+6.  For PostgreSQL as db, clone, build and run:
 
     git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
     cd django-monitor
