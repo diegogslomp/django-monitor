@@ -96,3 +96,5 @@ db.sqlite3
 # Virtualenv
 Pipfile
 Pipfile.lock
+
+docker-compose.override.yml
