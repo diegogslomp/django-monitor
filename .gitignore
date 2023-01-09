@@ -98,3 +98,4 @@ Pipfile
 Pipfile.lock
 
 docker-compose.override.yml
+backups/
