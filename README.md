@@ -11,31 +11,31 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 </p>
 
 1. Run local deployment:
-```
-    git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
-    cd django-monitor
+  ```
+  git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
+  cd django-monitor
 
-    pip install -r requirements
-    python manage.py createsuperuser
-    python manage.py makemigrations
-    python manage.py migrate --no-input
-    python manage.py collectstatic --no-input
+  pip install -r requirements
+  python manage.py createsuperuser
+  python manage.py makemigrations
+  python manage.py migrate --no-input
+  python manage.py collectstatic --no-input
 
-    python manage.py loaddata initial_data
-    gunicorn -b 0.0.0.0:8000 main.wsgi
-```
+  python manage.py loaddata initial_data
+  gunicorn -b 0.0.0.0:8000 main.wsgi
+  ```
 
 2.  Or docker image:
-```
-    docker run -d --restart=unless-stopped \
-        -e SECRET_KEY='change_this!o)=4*s#n' \
-        -e TIME_ZONE='America/Sao_Paulo' \
-        -v $(pwd)/db.sqlite3:/usr/src/app/db.sqlite3 \
-        -p 8000:8000 \
-        --name monitor diegogslomp/django-monitor
+  ```
+  docker run -d --restart=unless-stopped \
+    -e SECRET_KEY='change_this!o)=4*s#n' \
+    -e TIME_ZONE='America/Sao_Paulo' \
+    -v $(pwd)/db.sqlite3:/usr/src/app/db.sqlite3 \
+    -p 8000:8000 \
+    --name monitor diegogslomp/django-monitor
 
-    docker exec monitor python manage.py loaddata initial_data
-```
+  docker exec monitor python manage.py loaddata initial_data
+  ```
 
 3.  Visit <http://localhost:8000>
 
@@ -45,9 +45,9 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
     to the docker run command
 
 6.  For PostgreSQL as DB, clone, build and run:
-```
-    git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
-    cd django-monitor
-    docker compose build
-    docker compose up -d
-```
+  ```
+  git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
+  cd django-monitor
+  docker compose build
+  docker compose up -d
+  ```
