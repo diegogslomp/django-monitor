@@ -21,8 +21,14 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   python manage.py migrate --no-input
   python manage.py collectstatic --no-input
 
+  # Load sample data (optional)
   python manage.py loaddata initial_data
-  gunicorn -b 0.0.0.0:8000 main.wsgi
+
+  # Start web app
+  python manage.py runserver 0.0.0.0:8000
+
+  # Start monitord in another terminal
+  python manage.py monitord
   ```
 
 2.  Or docker image:
@@ -34,6 +40,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
     -p 8000:8000 \
     --name monitor diegogslomp/django-monitor
 
+  # Load sample data (optional)
   docker exec monitor python manage.py loaddata initial_data
   ```
 
