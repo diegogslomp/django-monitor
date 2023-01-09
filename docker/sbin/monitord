@@ -1,6 +1,6 @@
 #!/bin/sh
 # Stop if any error
-set -eu
+set -euo pipefail
 
 # Start monitor daemon
 python manage.py monitord

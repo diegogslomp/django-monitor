@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag monitor:$(date +%s)
+      run: docker build . --file docker/Dockerfile --tag monitor:$(date +%s)

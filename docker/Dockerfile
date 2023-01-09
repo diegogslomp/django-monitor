@@ -5,7 +5,7 @@ RUN apk add --update --no-cache \
 
 WORKDIR /usr/src/app
 
-COPY requirements.txt .
+COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
@@ -17,8 +17,8 @@ COPY main/settings.py main/settings.py
 COPY main/urls.py main/urls.py
 COPY monitor monitor
 
-COPY sbin /usr/local/sbin
-COPY supervisord.conf /etc/supervisord.conf
+COPY docker/sbin /usr/local/sbin
+COPY docker/supervisord.conf /etc/supervisord.conf
 
 CMD supervisord
 

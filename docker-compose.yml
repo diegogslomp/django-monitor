@@ -5,6 +5,7 @@ services:
     image: monitor:dev
     build:
       context: .
+      dockerfile: ./docker/Dockerfile
     container_name: monitor
     restart: unless-stopped
     environment:
@@ -17,7 +18,7 @@ services:
       DEBUG: "False"
       LOG_LEVEL: INFO
       TIME_ZONE: America/Sao_Paulo
-      SECRET_KEY: "change_this!@)!@)!@powe2"
+      SECRET_KEY: "3409f!@)!@)!@powe2@)!@)!@powe498j4302"
     ports:
       - "8000:8000"
     depends_on:
@@ -34,12 +35,12 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_DB: postgres
     volumes:
-      - db:/var/lib/postgresql/data
+      - monitordb:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
+      test: [ "CMD-SHELL", "pg_isready" ]
       interval: 10s
       timeout: 5s
       retries: 5
 
 volumes:
-  db:
+  monitordb:
