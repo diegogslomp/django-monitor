@@ -21,6 +21,10 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   python manage.py migrate --no-input
   python manage.py collectstatic --no-input
 
+  # Copy/Edit .env file and load environment variables
+  cp sample.env .env
+  source .env
+
   # Load sample data (optional)
   python manage.py loaddata initial_data
 
