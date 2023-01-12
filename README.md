@@ -22,10 +22,10 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   python manage.py collectstatic --no-input
 
   # Copy/Edit .env file and load environment variables
-  cp sample.env .env
+  cp .env.example .env
   source .env
 
-  # Load sample data (optional)
+  # Populate DB (optional)
   python manage.py loaddata initial_data
 
   # Start web app
@@ -44,7 +44,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
     -p 8000:8000 \
     --name monitor diegogslomp/django-monitor
 
-  # Load sample data (optional)
+  # Populate DB (optional)
   docker exec monitor python manage.py loaddata initial_data
   ```
 
