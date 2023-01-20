@@ -19,16 +19,16 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   python -m venv venv
   source venv/bin/activate
   
+  # Copy/Edit .env file and load environment variables
+  cp .env.example .env
+  export $(grep -v '^#' .env | xargs)
+  
   # Install dependencies
   pip install -r requirements
   python manage.py createsuperuser
   python manage.py makemigrations
   python manage.py migrate --no-input
   python manage.py collectstatic --no-input
-
-  # Copy/Edit .env file and load environment variables
-  cp .env.example .env
-  export $(grep -v '^#' .env | xargs)
 
   # Populate DB (optional)
   python manage.py loaddata initial_data
