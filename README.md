@@ -15,7 +15,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
   cd django-monitor
 
-  # Create and activate a virtual environment
+  # Create and activate a virtual environment (optional)
   python -m venv venv
   source venv/bin/activate
   
