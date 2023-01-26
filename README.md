@@ -16,7 +16,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   cd django-monitor
 
   # Create and activate a virtual environment (optional)
-  python -m pipenv install --three -r requirements
+  python -m pipenv install --three -r requirements.txt
   python -m pipenv shell
 
   # Copy/Edit environment variables file
@@ -52,14 +52,14 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   docker exec monitor python manage.py loaddata initial_data
   ```
 
-1.  Visit <http://localhost:8000>
+3.  Visit <http://localhost:8000>
 
-2.  Visit <http://localhost:8000/admin> to create hosts
+4.  Visit <http://localhost:8000/admin> to create hosts
 
-3.  To send telegram [bot](https://core.telegram.org/bots) messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
+5.  To send telegram [bot](https://core.telegram.org/bots) messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
     to the docker run command
 
-4.  For PostgreSQL as DB, clone, build and run:
+6.  For PostgreSQL as DB, clone, build and run:
   ```
   git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
   cd django-monitor
