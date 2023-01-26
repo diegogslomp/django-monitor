@@ -16,7 +16,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   cd django-monitor
 
   # Create and activate a virtual environment (optional)
-  python -m pipenv install --three -r requirements.txt
+  python -m pipenv install -r requirements.txt
   python -m pipenv shell
 
   # Copy/Edit environment variables file
