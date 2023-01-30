@@ -2,7 +2,8 @@ Django Monitor
 ==============
 
 [![gh-actions](https://github.com/diegogslomp/django-monitor/actions/workflows/docker-image.yml/badge.svg)](https://github.com/diegogslomp/django-monitor/actions)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/diegogslomp/django-monitor/blob/master/LICENSE)
+[![license](https://img.shields.io/github/license/diegogslomp/django-monitor)](https://github.com/diegogslomp/django-monitor/blob/master/LICENSE)
+[![gitHub release (latest by date)](https://img.shields.io/github/v/release/diegogslomp/django-monitor)](https://github.com/diegogslomp/django-monitor/releases)
 
 Ping devices and check port status from routers/switches through telnet
 connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
