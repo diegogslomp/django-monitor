@@ -16,12 +16,12 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
   cd django-monitor
 
+  # Copy/Edit environment variables file
+  cp .env.example .env
+
   # Create and activate a virtual environment (optional)
   python -m pipenv install
   python -m pipenv shell
-
-  # Copy/Edit environment variables file
-  cp .env.example .env
 
   # Install dependencies
   pip install -r requirements
