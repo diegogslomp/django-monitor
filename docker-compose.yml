@@ -5,7 +5,6 @@ services:
     image: monitor:dev
     build:
       context: .
-      dockerfile: ./docker/Dockerfile
     container_name: monitor
     restart: unless-stopped
     environment:

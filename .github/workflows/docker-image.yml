@@ -2,17 +2,19 @@ name: docker image CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
+    paths-ignore:
+      - "README.md"
   pull_request:
-    branches: [ master ]
+    branches: [master]
+    paths-ignore:
+      - "README.md"
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file docker/Dockerfile --tag monitor:$(date +%s)
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: docker build . --tag monitor:$(date +%s)

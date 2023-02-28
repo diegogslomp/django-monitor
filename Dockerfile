@@ -17,9 +17,7 @@ COPY main/settings.py main/settings.py
 COPY main/urls.py main/urls.py
 COPY monitor monitor
 
-COPY docker/sbin /usr/local/sbin
-COPY docker/supervisord.conf /etc/supervisord.conf
-
-CMD supervisord
+COPY ./run.sh /usr/local/sbin/run.sh
+CMD /usr/local/sbin/run.sh
 
 EXPOSE 8000
