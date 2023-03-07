@@ -11,7 +11,35 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 <img src="https://raw.githubusercontent.com/diegogslomp/django-monitor/master/docs/_screenshots/hostlist.png" style="max-height: 440px;"/>
 </p>
 
-1. Run local deployment:
+1. Run docker image:
+  ```
+  docker run -d --restart=unless-stopped \
+    -e SECRET_KEY='change_this!o)=4*s#n' \
+    -e TIME_ZONE='America/Sao_Paulo' \
+    -v $(pwd)/db.sqlite3:/usr/src/app/db.sqlite3 \
+    -p 8000:8000 \
+    --name monitor diegogslomp/django-monitor
+
+  # Populate DB (optional)
+  docker exec monitor python manage.py loaddata initial_data
+  ```
+
+2.  Visit <http://localhost:8000>
+
+3.  Visit <http://localhost:8000/admin> to create hosts
+
+4.  To send telegram [bot](https://core.telegram.org/bots) messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
+    to the docker run command
+
+5.  For PostgreSQL as DB, clone, build and run:
+  ```
+  git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
+  cd django-monitor
+  docker compose build --pull
+  docker compose up -d
+  ```
+
+6.  Local deployment:
   ```
   git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
   cd django-monitor
@@ -38,32 +66,4 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
 
   # Start monitord in another terminal
   python manage.py monitord
-  ```
-
-2. Or run as docker image:
-  ```
-  docker run -d --restart=unless-stopped \
-    -e SECRET_KEY='change_this!o)=4*s#n' \
-    -e TIME_ZONE='America/Sao_Paulo' \
-    -v $(pwd)/db.sqlite3:/usr/src/app/db.sqlite3 \
-    -p 8000:8000 \
-    --name monitor diegogslomp/django-monitor
-
-  # Populate DB (optional)
-  docker exec monitor python manage.py loaddata initial_data
-  ```
-
-3.  Visit <http://localhost:8000>
-
-4.  Visit <http://localhost:8000/admin> to create hosts
-
-5.  To send telegram [bot](https://core.telegram.org/bots) messages, add `TELEGRAM_CHAT_ID` and `TELEGRAM_TOKEN`
-    to the docker run command
-
-6.  For PostgreSQL as DB, clone, build and run:
-  ```
-  git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
-  cd django-monitor
-  docker compose build
-  docker compose up -d
   ```

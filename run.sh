@@ -2,7 +2,7 @@
 # Stop if any error
 set -eu
 
-cd /usr/local
+cd /usr/src/app
 python manage.py makemigrations
 python manage.py migrate --no-input
 python manage.py collectstatic --no-input
