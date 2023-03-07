@@ -20,6 +20,9 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
     -p 8000:8000 \
     --name monitor diegogslomp/django-monitor
 
+  # Create superuser to access admin dashboard
+  docker exec -it monitor python manage.py createsuperuser
+
   # Populate DB (optional)
   docker exec monitor python manage.py loaddata initial_data
   ```
@@ -36,7 +39,8 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   git clone --single-branch --recurse-submodules https://github.com/diegogslomp/django-monitor.git
   cd django-monitor
   docker compose build --pull
-  docker compose up -d
+  docker compose up -d && docker compose logs -f
+  docker compose exec -it monitor python manage.py createsuperuser
   ```
 
 6.  Local deployment:
