@@ -16,6 +16,7 @@ connection. Telnet tested on Enterasys S8, G3 and A4 switch series.
   docker run -d --restart=unless-stopped \
     -e SECRET_KEY='change_this!o)=4*s#n' \
     -e TIME_ZONE='America/Sao_Paulo' \
+    -e DJANGO_ALLOW_ASYNC_UNSAFE=True \
     -v monitor:/usr/src/app \
     -p 8000:8000 \
     --name monitor diegogslomp/django-monitor
