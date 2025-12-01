@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.11-alpine
 
 RUN apk add --update --no-cache \
     curl postgresql-dev gcc python3-dev musl-dev
@@ -16,8 +16,7 @@ RUN django-admin startproject main .
 COPY main/settings.py main/settings.py
 COPY main/urls.py main/urls.py
 COPY monitor monitor
-
-COPY ./run.sh /usr/local/sbin/run.sh
-CMD /usr/local/sbin/run.sh
+COPY run.sh run.sh
+CMD ["/usr/src/app/run.sh"]
 
 EXPOSE 8000
